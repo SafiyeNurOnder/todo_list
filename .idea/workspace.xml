@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment="project">
-      <change afterPath="$PROJECT_DIR$/deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709812067325</updated>
-      <workItem from="1709812081659" duration="12974000" />
+      <workItem from="1709812081659" duration="13826000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <option name="closed" value="true" />
