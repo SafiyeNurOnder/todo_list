@@ -1,7 +1,7 @@
-from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import declarative_base,sessionmaker
+from sqlalchemy import Column, String, Integer
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from models import Base
 
 class User(Base):
     __tablename__ = 'users'
@@ -11,12 +11,5 @@ class User(Base):
     email = Column(String(50))
     password = Column(String(50))
 
-def create_session(engine):
-    Session = sessionmaker(bind=engine)
-    return Session()
-def initialize_databases():
-    engine = create_engine('mysql+pymysql://root:1@localhost:3306/todo_list')
-    Base.metadata.create_all(engine)
-    return create_session(engine)
-
-session = initialize_databases()
+    # kullanıcı ile ilişki kurmak için relationship tanımlanabilir
+    tasks = relationship("Task", back_populates="user")
