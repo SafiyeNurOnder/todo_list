@@ -19,6 +19,8 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_settings.clicked.connect(self.switch_to_page_settings)
         self.pushButton_settings2.clicked.connect(self.switch_to_page_settings)
 
+        self.pushButton_search.clicked.connect(self.switch_to_page_search)
+
     def switch_to_page_home(self):
         self.stackedWidget.setCurrentIndex(0)
 
@@ -31,3 +33,5 @@ class SideBar(QMainWindow, Ui_MainWindow):
     def switch_to_page_settings(self):
         self.stackedWidget.setCurrentIndex(3)
 
+    def switch_to_page_search(self):
+        self.stackedWidget.setCurrentIndex(4)

@@ -192,8 +192,8 @@ QPushButton:checked{
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/settings-icon.png</normaloff>
-             <normalon>:/icon/icons/settings-icon.png</normalon>:/icon/icons/settings-icon.png</iconset>
+             <normaloff>:/icon/icons/settings_icon.png</normaloff>
+             <normalon>:/icon/icons/settings_icon.png</normalon>:/icon/icons/settings_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -683,7 +683,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>220</y>
+             <y>240</y>
              <width>161</width>
              <height>41</height>
             </rect>
@@ -704,8 +704,8 @@ QLabel:hover {
           <widget class="QLabel" name="label_7">
            <property name="geometry">
             <rect>
-             <x>260</x>
-             <y>210</y>
+             <x>270</x>
+             <y>290</y>
              <width>191</width>
              <height>51</height>
             </rect>
@@ -719,6 +719,50 @@ QLabel:hover {
            </property>
            <property name="text">
             <string>Settings Page</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="page_search">
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>310</x>
+             <y>230</y>
+             <width>191</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Search Page</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="page_profile">
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>210</y>
+             <width>191</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Profile Page</string>
            </property>
           </widget>
          </widget>
@@ -900,9 +944,9 @@ QPushButton:checked{
             <string>Settings</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>:/newPrefix/icons/settings-icon.png</normaloff>
-             <normalon>:/icon/icons/settings-icon.png</normalon>:/newPrefix/icons/settings-icon.png</iconset>
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icons/settings_icon.png</normaloff>
+             <normalon>:/icon/icons/settings_icon.png</normalon>:/icon/icons/settings_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
