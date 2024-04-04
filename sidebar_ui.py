@@ -146,9 +146,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setSpacing(6)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.lineEdit = QtWidgets.QLineEdit(self.widget)
-        self.lineEdit.setObjectName("lineEdit")
-        self.horizontalLayout.addWidget(self.lineEdit)
+        self.lineEdit_search = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_search.setObjectName("lineEdit_search")
+        self.horizontalLayout.addWidget(self.lineEdit_search)
         self.pushButton_search = QtWidgets.QPushButton(self.widget)
         self.pushButton_search.setStyleSheet("border:none;")
         self.pushButton_search.setText("")
@@ -178,7 +178,7 @@ class Ui_MainWindow(object):
         self.page_home = QtWidgets.QWidget()
         self.page_home.setObjectName("page_home")
         self.label_4 = QtWidgets.QLabel(self.page_home)
-        self.label_4.setGeometry(QtCore.QRect(90, 500, 161, 51))
+        self.label_4.setGeometry(QtCore.QRect(460, 10, 161, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.calendarWidget = QtWidgets.QCalendarWidget(self.page_home)
-        self.calendarWidget.setGeometry(QtCore.QRect(50, 240, 331, 251))
+        self.calendarWidget.setGeometry(QtCore.QRect(10, 60, 331, 251))
         self.calendarWidget.setStyleSheet("QCalendarWidget {\n"
 "    border: 2px solid #ccc; /* Takvim çerçevesi rengi */\n"
 "    border-radius: 5px; /* Köşeleri yuvarlat */\n"
@@ -268,7 +268,7 @@ class Ui_MainWindow(object):
 "")
         self.calendarWidget.setObjectName("calendarWidget")
         self.pushButton = QtWidgets.QPushButton(self.page_home)
-        self.pushButton.setGeometry(QtCore.QRect(560, 189, 101, 41))
+        self.pushButton.setGeometry(QtCore.QRect(320, 320, 101, 41))
         self.pushButton.setStyleSheet("QPushButton {\n"
 "    font-family: Arial;\n"
 "    font-size: 14px;\n"
@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.page_home)
-        self.pushButton_2.setGeometry(QtCore.QRect(400, 500, 261, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(40, 500, 261, 41))
         self.pushButton_2.setStyleSheet("QPushButton {\n"
 "    font-family: Arial;\n"
 "    font-size: 14px;\n"
@@ -316,10 +316,10 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.listWidget = QtWidgets.QListWidget(self.page_home)
-        self.listWidget.setGeometry(QtCore.QRect(400, 240, 261, 251))
+        self.listWidget.setGeometry(QtCore.QRect(40, 320, 261, 171))
         self.listWidget.setObjectName("listWidget")
         self.label_8 = QtWidgets.QLabel(self.page_home)
-        self.label_8.setGeometry(QtCore.QRect(50, 130, 611, 41))
+        self.label_8.setGeometry(QtCore.QRect(10, 10, 351, 41))
         self.label_8.setStyleSheet("border-radius: 10px;\n"
 "font-size: 24px;\n"
 "background: #01BFFF;\n"
@@ -327,7 +327,18 @@ class Ui_MainWindow(object):
 "font: 11pt;")
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
         self.label_8.setObjectName("label_8")
-        self.label_9 = QtWidgets.QLabel(self.page_home)
+        self.stackedWidget.addWidget(self.page_home)
+        self.page_dashboard = QtWidgets.QWidget()
+        self.page_dashboard.setObjectName("page_dashboard")
+        self.label_5 = QtWidgets.QLabel(self.page_dashboard)
+        self.label_5.setGeometry(QtCore.QRect(240, 210, 231, 61))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.label_9 = QtWidgets.QLabel(self.page_dashboard)
         self.label_9.setGeometry(QtCore.QRect(50, 30, 611, 71))
         self.label_9.setStyleSheet("QLabel {\n"
 "    font-family: Arial;\n"
@@ -343,17 +354,6 @@ class Ui_MainWindow(object):
 "    background-color: #e0e0e0;\n"
 "}")
         self.label_9.setObjectName("label_9")
-        self.stackedWidget.addWidget(self.page_home)
-        self.page_dashboard = QtWidgets.QWidget()
-        self.page_dashboard.setObjectName("page_dashboard")
-        self.label_5 = QtWidgets.QLabel(self.page_dashboard)
-        self.label_5.setGeometry(QtCore.QRect(240, 210, 231, 61))
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_5.setFont(font)
-        self.label_5.setObjectName("label_5")
         self.stackedWidget.addWidget(self.page_dashboard)
         self.page_users = QtWidgets.QWidget()
         self.page_users.setObjectName("page_users")
@@ -489,7 +489,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
         self.pushButton_change.toggled['bool'].connect(self.widget_icon_menu.setVisible) # type: ignore
         self.pushButton_change.toggled['bool'].connect(self.widget_full_menu.setHidden) # type: ignore
         self.pushButton_home.toggled['bool'].connect(self.pushButton_home2.setChecked) # type: ignore
@@ -507,13 +507,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Search..."))
+        self.lineEdit_search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.label_4.setText(_translate("MainWindow", "Home Page"))
         self.pushButton.setText(_translate("MainWindow", "Add New"))
         self.pushButton_2.setText(_translate("MainWindow", "Save Changes"))
         self.label_8.setText(_translate("MainWindow", "Daily Task Planner"))
-        self.label_9.setText(_translate("MainWindow", "TextLabel"))
         self.label_5.setText(_translate("MainWindow", "Dashboard Page"))
+        self.label_9.setText(_translate("MainWindow", "TextLabel"))
         self.label_6.setText(_translate("MainWindow", "Users Page"))
         self.label_7.setText(_translate("MainWindow", "Settings Page"))
         self.label_10.setText(_translate("MainWindow", "Search Page"))

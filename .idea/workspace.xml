@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/sidebar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homepage.ui" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/icons/account_logout.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/icons/dashboard.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/icons/messages.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/settings-icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/icons/todo.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/icons/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/login.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resource.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar.ui" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,9 @@
       <workItem from="1711607348343" duration="7173000" />
       <workItem from="1711699603977" duration="2285000" />
       <workItem from="1711964777377" duration="5756000" />
-      <workItem from="1711970801371" duration="5177000" />
+      <workItem from="1711970801371" duration="7392000" />
+      <workItem from="1712133873345" duration="3871000" />
+      <workItem from="1712220965354" duration="571000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <option name="closed" value="true" />
@@ -271,7 +270,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711971856560</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=".">
+      <option name="closed" value="true" />
+      <created>1712132114505</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712132114505</updated>
+    </task>
+    <task id="LOCAL-00014" summary=".">
+      <option name="closed" value="true" />
+      <created>1712135349067</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712135349068</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +320,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$database.coverage" NAME="database Coverage Results" MODIFIED="1711097996615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$app.coverage" NAME="app Coverage Results" MODIFIED="1712131020465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$app.coverage" NAME="app Coverage Results" MODIFIED="1712139551807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$main.coverage" NAME="main Coverage Results" MODIFIED="1710925849264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$login.coverage" NAME="login Coverage Results" MODIFIED="1711549273165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$sidebar.coverage" NAME="sidebar Coverage Results" MODIFIED="1711968503936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

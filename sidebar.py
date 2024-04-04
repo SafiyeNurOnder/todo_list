@@ -21,6 +21,8 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
         self.pushButton_search.clicked.connect(self.switch_to_page_search)
 
+        self.pushButton_user.clicked.connect(self.switch_to_page_profile)
+
     def switch_to_page_home(self):
         self.stackedWidget.setCurrentIndex(0)
 
@@ -34,4 +36,12 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(3)
 
     def switch_to_page_search(self):
+        # Butona tıklandığında textbox içeriğini al
+        search_text = self.lineEdit_search.text()
+        # Alınan içeriği label'a yaz
+        self.label_10.setText(search_text)
+        # Search sayfasına geçiş yap
         self.stackedWidget.setCurrentIndex(4)
+
+    def switch_to_page_profile(self):
+        self.stackedWidget.setCurrentIndex(5)

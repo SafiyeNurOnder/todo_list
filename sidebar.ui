@@ -339,7 +339,7 @@ QPushButton:checked{
              <number>6</number>
             </property>
             <item>
-             <widget class="QLineEdit" name="lineEdit">
+             <widget class="QLineEdit" name="lineEdit_search">
               <property name="placeholderText">
                <string>Search...</string>
               </property>
@@ -408,14 +408,14 @@ QPushButton:checked{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page_home">
           <widget class="QLabel" name="label_4">
            <property name="geometry">
             <rect>
-             <x>90</x>
-             <y>500</y>
+             <x>460</x>
+             <y>10</y>
              <width>161</width>
              <height>51</height>
             </rect>
@@ -434,8 +434,8 @@ QPushButton:checked{
           <widget class="QCalendarWidget" name="calendarWidget">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>240</y>
+             <x>10</x>
+             <y>60</y>
              <width>331</width>
              <height>251</height>
             </rect>
@@ -525,8 +525,8 @@ QCalendarWidget QComboBox {
           <widget class="QPushButton" name="pushButton">
            <property name="geometry">
             <rect>
-             <x>560</x>
-             <y>189</y>
+             <x>320</x>
+             <y>320</y>
              <width>101</width>
              <height>41</height>
             </rect>
@@ -561,7 +561,7 @@ QPushButton:pressed {
           <widget class="QPushButton" name="pushButton_2">
            <property name="geometry">
             <rect>
-             <x>400</x>
+             <x>40</x>
              <y>500</y>
              <width>261</width>
              <height>41</height>
@@ -597,19 +597,19 @@ QPushButton:pressed {
           <widget class="QListWidget" name="listWidget">
            <property name="geometry">
             <rect>
-             <x>400</x>
-             <y>240</y>
+             <x>40</x>
+             <y>320</y>
              <width>261</width>
-             <height>251</height>
+             <height>171</height>
             </rect>
            </property>
           </widget>
           <widget class="QLabel" name="label_8">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>130</y>
-             <width>611</width>
+             <x>10</x>
+             <y>10</y>
+             <width>351</width>
              <height>41</height>
             </rect>
            </property>
@@ -625,6 +625,28 @@ font: 11pt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="page_dashboard">
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>210</y>
+             <width>231</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dashboard Page</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_9">
@@ -653,28 +675,6 @@ QLabel:hover {
            </property>
            <property name="text">
             <string>TextLabel</string>
-           </property>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="page_dashboard">
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>210</y>
-             <width>231</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>20</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Dashboard Page</string>
            </property>
           </widget>
          </widget>
