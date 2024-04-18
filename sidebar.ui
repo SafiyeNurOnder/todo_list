@@ -105,7 +105,7 @@ QPushButton:checked{
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
-          <number>10</number>
+          <number>15</number>
          </property>
          <property name="topMargin">
           <number>15</number>
@@ -117,8 +117,8 @@ QPushButton:checked{
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/homepage_icon.png</normaloff>
-             <normalon>:/icon/icons/homepage_icon.png</normalon>:/icon/icons/homepage_icon.png</iconset>
+             <normaloff>:/icon/icons/home_icon.png</normaloff>
+             <normalon>:/icon/icons/home_icon.png</normalon>:/icon/icons/home_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -144,8 +144,8 @@ QPushButton:checked{
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/dashboard_icon.png</normaloff>
-             <normalon>:/icon/icons/dashboard_icon.png</normalon>:/icon/icons/dashboard_icon.png</iconset>
+             <normaloff>:/icon/icons/dashboard_iconb.png</normaloff>
+             <normalon>:/icon/icons/dashboard_iconb.png</normalon>:/icon/icons/dashboard_iconb.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -168,8 +168,8 @@ QPushButton:checked{
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/users_icon.png</normaloff>
-             <normalon>:/icon/icons/users_icon.png</normalon>:/icon/icons/users_icon.png</iconset>
+             <normaloff>:/icon/icons/addtask_icon.png</normaloff>
+             <normalon>:/icon/icons/addtask_icon.png</normalon>:/icon/icons/addtask_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -192,8 +192,8 @@ QPushButton:checked{
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/settings_icon.png</normaloff>
-             <normalon>:/icon/icons/settings_icon.png</normalon>:/icon/icons/settings_icon.png</iconset>
+             <normaloff>:/icon/icons/settings_icons.png</normaloff>
+             <normalon>:/icon/icons/settings_icons.png</normalon>:/icon/icons/settings_icons.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -409,7 +409,7 @@ QPushButton:checked{
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: #01BFFF;
+    background-color: #8484c6;
     color: white;
     border: none;
     border-radius: 4px;
@@ -417,7 +417,7 @@ QPushButton:checked{
 }
 
 QLineEdit {
-    border: 2px solid #01BFFF;
+    border: 2px solid #8484c6;
     border-radius: 4px;
     padding: 8px;
 }
@@ -428,20 +428,26 @@ QListWidget {
 
 QLabel {
     color: #333333; /* Metin rengi */
-    font-size: 16px; /* Font boyutu */
+    font-size: 14px; /* Font boyutu */
     font-weight: bold; /* Kalın font */
 }
 
 QComboBox {
-    border: 2px solid #01BFFF;
+    border: 2px solid #8484c6;
     border-radius: 4px;
     padding: 6px 12px; /* Combobox yüksekliği ve genişliği */
 }
 
 QDateEdit {
-    border: 2px solid #01BFFF;
+    border: 2px solid #8484c6;
     border-radius: 4px;
     padding: 6px 12px; /* DateEdit yüksekliği ve genişliği */
+}
+
+QPushButton:pressed {
+    background-color: #ffaa00; 
+    border-color: #d0d0d0; 
+    border-style: inset;
 }</string>
          </property>
          <property name="currentIndex">
@@ -480,7 +486,7 @@ QDateEdit {
            <property name="styleSheet">
             <string notr="true">border-radius: 10px;
 font-size: 24px;
-background: #01BFFF;
+background: #8484c6;
 Color: white;
 font: 11pt;</string>
            </property>
@@ -510,7 +516,13 @@ font: 11pt;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #8484c6;
+}
+
+QCalendarWidget QTableView {
+    selection-background-color: #8484c6;
+}</string>
             </property>
            </widget>
            <widget class="QListWidget" name="listWidget">
@@ -523,7 +535,7 @@ font: 11pt;</string>
              </rect>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButton_savechanges">
             <property name="geometry">
              <rect>
               <x>350</x>
@@ -533,33 +545,18 @@ font: 11pt;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton {
-    font-family: Arial;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; 
-    background-color: #f0f0f0; 
-    border: 2px solid #fff6f4; 
-    border-radius: 5px;
-    padding: 8px 16px;
-}
-
-QPushButton:hover {
-    background-color: #e0e0e0; 
-    border-color: #e0e0e0; 
-}
-
-QPushButton:pressed {
-    background-color: #d0d0d0; 
-    border-color: #d0d0d0; 
-    border-style: inset;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Save Changes</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/save_icon.png</normaloff>
+              <normalon>:/icon_add/icons/save_icon.png</normalon>:/icon_add/icons/save_icon.png</iconset>
+            </property>
            </widget>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="pushButton_addnew">
             <property name="geometry">
              <rect>
               <x>510</x>
@@ -569,33 +566,18 @@ QPushButton:pressed {
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton {
-    font-family: Arial;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; 
-    background-color: #f0f0f0; 
-    border: 2px solid #fff6f4; 
-    border-radius: 5px;
-    padding: 8px 16px;
-}
-
-QPushButton:hover {
-    background-color: #e0e0e0; 
-    border-color: #e0e0e0; 
-}
-
-QPushButton:pressed {
-    background-color: #d0d0d0; 
-    border-color: #d0d0d0; 
-    border-style: inset;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Add New</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/addtask_icon.png</normaloff>
+              <normalon>:/icon_add/icons/addtask_icon.png</normalon>:/icon_add/icons/addtask_icon.png</iconset>
+            </property>
            </widget>
-           <widget class="QComboBox" name="comboBox_4">
+           <widget class="QComboBox" name="comboBox_addnewtask">
             <property name="geometry">
              <rect>
               <x>350</x>
@@ -920,7 +902,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>70</y>
+             <y>90</y>
              <width>94</width>
              <height>291</height>
             </rect>
@@ -980,7 +962,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>130</x>
-             <y>380</y>
+             <y>400</y>
              <width>101</width>
              <height>22</height>
             </rect>
@@ -993,7 +975,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>110</x>
-             <y>70</y>
+             <y>90</y>
              <width>144</width>
              <height>296</height>
             </rect>
@@ -1045,7 +1027,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>380</y>
+             <y>400</y>
              <width>101</width>
              <height>22</height>
             </rect>
@@ -1057,9 +1039,9 @@ QLabel:hover {
           <widget class="QWidget" name="layoutWidget_3">
            <property name="geometry">
             <rect>
-             <x>250</x>
-             <y>20</y>
-             <width>471</width>
+             <x>260</x>
+             <y>30</y>
+             <width>461</width>
              <height>42</height>
             </rect>
            </property>
@@ -1085,15 +1067,30 @@ QLabel:hover {
                <property name="text">
                 <string>Daily Routines</string>
                </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon_add/icons/dailyroutine_icon</normaloff>
+                 <normalon>:/icon_add/icons/dailyroutine_icon</normalon>:/icon_add/icons/dailyroutine_icon</iconset>
+               </property>
               </item>
               <item>
                <property name="text">
                 <string>Work</string>
                </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon_add/icons/work_icon.png</normaloff>
+                 <normalon>:/icon_add/icons/work_icon.png</normalon>:/icon_add/icons/work_icon.png</iconset>
+               </property>
               </item>
               <item>
                <property name="text">
                 <string>Home</string>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon_add/icons/home_icon.png</normaloff>
+                 <normalon>:/icon_add/icons/home_icon.png</normalon>:/icon_add/icons/home_icon.png</iconset>
                </property>
               </item>
              </widget>
@@ -1104,7 +1101,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>410</y>
+             <y>430</y>
              <width>111</width>
              <height>30</height>
             </rect>
@@ -1121,15 +1118,30 @@ QLabel:hover {
             <property name="text">
              <string>Daily Routines</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/dailyroutine_icon</normaloff>
+              <normalon>:/icon_add/icons/dailyroutine_icon</normalon>:/icon_add/icons/dailyroutine_icon</iconset>
+            </property>
            </item>
            <item>
             <property name="text">
              <string>Work</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/work_icon.png</normaloff>
+              <normalon>:/icon_add/icons/work_icon.png</normalon>:/icon_add/icons/work_icon.png</iconset>
+            </property>
            </item>
            <item>
             <property name="text">
              <string>Home</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/home_icon.png</normaloff>
+              <normalon>:/icon_add/icons/home_icon.png</normalon>:/icon_add/icons/home_icon.png</iconset>
             </property>
            </item>
           </widget>
@@ -1137,7 +1149,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>130</x>
-             <y>410</y>
+             <y>430</y>
              <width>111</width>
              <height>30</height>
             </rect>
@@ -1151,15 +1163,30 @@ QLabel:hover {
             <property name="text">
              <string>1</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/red_icon.png</normaloff>
+              <normalon>:/icon_add/icons/red_icon.png</normalon>:/icon_add/icons/red_icon.png</iconset>
+            </property>
            </item>
            <item>
             <property name="text">
              <string>2</string>
             </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/yellow_icon.png</normaloff>
+              <normalon>:/icon_add/icons/yellow_icon.png</normalon>:/icon_add/icons/yellow_icon.png</iconset>
+            </property>
            </item>
            <item>
             <property name="text">
              <string>3</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon_add/icons/green_icon.png</normaloff>
+              <normalon>:/icon_add/icons/green_icon.png</normalon>:/icon_add/icons/green_icon.png</iconset>
             </property>
            </item>
           </widget>
@@ -1167,7 +1194,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>480</y>
+             <y>490</y>
              <width>721</width>
              <height>40</height>
             </rect>
@@ -1187,6 +1214,11 @@ QLabel:hover {
               <property name="text">
                <string>Add Task</string>
               </property>
+              <property name="icon">
+               <iconset resource="resource.qrc">
+                <normaloff>:/icon_add/icons/addtask_icon.png</normaloff>
+                <normalon>:/icon_add/icons/addtask_icon.png</normalon>:/icon_add/icons/addtask_icon.png</iconset>
+              </property>
               <property name="autoDefault">
                <bool>true</bool>
               </property>
@@ -1196,6 +1228,11 @@ QLabel:hover {
              <widget class="QPushButton" name="pushButton_deletetask">
               <property name="text">
                <string>Delete Task</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resource.qrc">
+                <normaloff>:/icon_add/icons/delete_icon.png</normaloff>
+                <normalon>:/icon_add/icons/delete_icon.png</normalon>:/icon_add/icons/delete_icon.png</iconset>
               </property>
               <property name="autoDefault">
                <bool>true</bool>
@@ -1207,6 +1244,11 @@ QLabel:hover {
               <property name="text">
                <string>Update Task</string>
               </property>
+              <property name="icon">
+               <iconset resource="resource.qrc">
+                <normaloff>:/icon_add/icons/update_icon.png</normaloff>
+                <normalon>:/icon_add/icons/update_icon.png</normalon>:/icon_add/icons/update_icon.png</iconset>
+              </property>
               <property name="autoDefault">
                <bool>true</bool>
               </property>
@@ -1216,6 +1258,11 @@ QLabel:hover {
              <widget class="QPushButton" name="pushButton_listtask">
               <property name="text">
                <string>List Task</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resource.qrc">
+                <normaloff>:/icon_add/icons/list_icon.png</normaloff>
+                <normalon>:/icon_add/icons/list_icon.png</normalon>:/icon_add/icons/list_icon.png</iconset>
               </property>
               <property name="autoDefault">
                <bool>true</bool>
@@ -1228,7 +1275,7 @@ QLabel:hover {
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>70</y>
+             <y>90</y>
              <width>461</width>
              <height>341</height>
             </rect>
@@ -1342,15 +1389,18 @@ QLabel:hover {
       <property name="styleSheet">
        <string notr="true">QWidget{
 	background-color:rgb(255,255,255);
-	color: black;
 }
 
 QPushButton {
-    background-color: #01BFFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 12px;
+	border:none;
+	height:30px;
+	border-radius:10px;
+}
+
+QPushButton:checked{
+	background-color: rgb(218,218,218);
+	color: black;
+	font-weight:bold;
 }
 </string>
       </property>
@@ -1417,7 +1467,7 @@ QPushButton {
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="spacing">
-          <number>2</number>
+          <number>15</number>
          </property>
          <property name="leftMargin">
           <number>0</number>
@@ -1432,13 +1482,13 @@ QPushButton {
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/homepage_icon.png</normaloff>
-             <normalon>:/icon/icons/homepage_icon.png</normalon>:/icon/icons/homepage_icon.png</iconset>
+             <normaloff>:/icon/icons/home_icon.png</normaloff>
+             <normalon>:/icon/icons/home_icon.png</normalon>:/icon/icons/home_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="checkable">
@@ -1456,13 +1506,13 @@ QPushButton {
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/dashboard_icon.png</normaloff>
-             <normalon>:/icon/icons/dashboard_icon.png</normalon>:/icon/icons/dashboard_icon.png</iconset>
+             <normaloff>:/icon/icons/dashboard_iconb.png</normaloff>
+             <normalon>:/icon/icons/dashboard_iconb.png</normalon>:/icon/icons/dashboard_iconb.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="checkable">
@@ -1480,13 +1530,13 @@ QPushButton {
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/users_icon.png</normaloff>
-             <normalon>:/icon/icons/users_icon.png</normalon>:/icon/icons/users_icon.png</iconset>
+             <normaloff>:/icon/icons/addtask_icon.png</normaloff>
+             <normalon>:/icon/icons/addtask_icon.png</normalon>:/icon/icons/addtask_icon.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="checkable">
@@ -1504,13 +1554,13 @@ QPushButton {
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icons/settings_icon.png</normaloff>
-             <normalon>:/icon/icons/settings_icon.png</normalon>:/icon/icons/settings_icon.png</iconset>
+             <normaloff>:/icon/icons/settings_icons.png</normaloff>
+             <normalon>:/icon/icons/settings_icons.png</normalon>:/icon/icons/settings_icons.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="checkable">
@@ -1573,7 +1623,6 @@ QPushButton {
  </widget>
  <resources>
   <include location="resource.qrc"/>
-  <include location="../../.designer/backup/resource.qrc"/>
  </resources>
  <connections>
   <connection>

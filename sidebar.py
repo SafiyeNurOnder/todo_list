@@ -31,6 +31,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_updatetask.clicked.connect(self.update_task)
         self.pushButton_listtask.clicked.connect(self.load_task)
         self.comboBox_kglistele.currentIndexChanged.connect(self.load_tasks_by_category)
+        self.pushButton_search.clicked.connect(self.search_page)
 
 
     def switch_to_page_home(self):
@@ -46,11 +47,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(3)
 
     def switch_to_page_search(self):
-        # Butona tıklandığında textbox içeriğini al
-        search_text = self.lineEdit_search.text()
-        # Alınan içeriği label'a yaz
-        self.label_10.setText(search_text)
-        # Search sayfasına geçiş yap
         self.stackedWidget.setCurrentIndex(4)
 
     def switch_to_page_profile(self):
@@ -235,3 +231,23 @@ class SideBar(QMainWindow, Ui_MainWindow):
             due_date_str = task.due_date.strftime("%Y-%m-%d")
             task_str = f"ID: {task.id} - Title: {task.title} - Due Date: {due_date_str} - Completed: {completed_status} - User ID: {task.user_id}"
             self.listWidget_task.addItem(task_str)
+
+    def search_page(self):
+        search_text = self.lineEdit_search.text().strip()
+        if not search_text:
+            QMessageBox.warning(self, "Warning", "Please enter a search term!")
+            return
+
+        # Arama sonuçlarına göre hangi sayfaya geçileceğini belirleyin.
+        if 'home' in search_text.lower():
+            self.stackedWidget.setCurrentIndex(0)
+        elif 'dashboard' in search_text.lower():
+            self.stackedWidget.setCurrentIndex(1)
+        elif 'add task' in search_text.lower():
+            self.stackedWidget.setCurrentIndex(2)
+        elif 'settings' in search_text.lower():
+            self.stackedWidget.setCurrentIndex(3)
+        elif 'profile' in search_text.lower():
+            self.stackedWidget.setCurrentIndex(5)
+        else:
+            QMessageBox.warning(self, "Warning", "No matching page found!")

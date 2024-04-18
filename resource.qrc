@@ -1,14 +1,26 @@
 <RCC>
   <qresource prefix="icon">
-    <file>icons/settings_icon.png</file>
+    <file>icons/dashboard_iconb.png</file>
+    <file>icons/addtask_icon.png</file>
+    <file>icons/settings_icons.png</file>
+    <file>icons/home_icon.png</file>
     <file>icons/search_icon.png</file>
-    <file>icons/users_icon.png</file>
     <file>icons/profile_icon.png</file>
     <file>icons/menu_icon.png</file>
-    <file>icons/logout_icon.png</file>
-    <file>icons/homepage_icon.png</file>
-    <file>icons/dashboard_icon.png</file>
     <file>icons/close_window.png</file>
     <file>icons/todolist.png</file>
+  </qresource>
+  <qresource prefix="icon_add">
+    <file>icons/save_icon.png</file>
+    <file>icons/update_icon.png</file>
+    <file>icons/delete_icon.png</file>
+    <file>icons/list_icon.png</file>
+    <file>icons/addtask_icon.png</file>
+    <file>icons/dailyroutine_icon</file>
+    <file>icons/work_icon.png</file>
+    <file>icons/home_icon.png</file>
+    <file>icons/red_icon.png</file>
+    <file>icons/yellow_icon.png</file>
+    <file>icons/green_icon.png</file>
   </qresource>
 </RCC>
