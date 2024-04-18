@@ -52,13 +52,14 @@ class SignUp(QDialog):
 
             from app import widget
             QMessageBox.information(self, "Success", "Successfully signed up!")
-            login=widget()
+            from login import Login
+            login=Login()
             widget.addWidget(login)
             widget.setCurrentIndex(widget.currentIndex()+1)
 
     def gotologin(self):
         from login import Login
         from app import widget
-        login=Login()
+        login=widget()
         widget.addWidget(login)
         widget.setCurrentIndex(widget.currentIndex()+1)

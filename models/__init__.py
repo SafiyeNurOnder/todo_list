@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 # MySQL veritabanı bağlantısı oluşturma
-engine = create_engine('mysql+pymysql://root:1@localhost:3306/todo_list')
+engine = create_engine('mysql+pymysql://root:1@localhost:3306/todoList')
 Base = declarative_base()
 
 # Oturum oluşturma

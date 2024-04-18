@@ -105,7 +105,7 @@ QPushButton:checked{
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
-          <number>15</number>
+          <number>10</number>
          </property>
          <property name="topMargin">
           <number>15</number>
@@ -162,7 +162,7 @@ QPushButton:checked{
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_users">
+          <widget class="QPushButton" name="pushButton_addtask">
            <property name="text">
             <string/>
            </property>
@@ -407,8 +407,45 @@ QPushButton:checked{
        </item>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #01BFFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+QLineEdit {
+    border: 2px solid #01BFFF;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+QListWidget {
+    background-color: #f2f2f2;
+}
+
+QLabel {
+    color: #333333; /* Metin rengi */
+    font-size: 16px; /* Font boyutu */
+    font-weight: bold; /* Kalın font */
+}
+
+QComboBox {
+    border: 2px solid #01BFFF;
+    border-radius: 4px;
+    padding: 6px 12px; /* Combobox yüksekliği ve genişliği */
+}
+
+QDateEdit {
+    border: 2px solid #01BFFF;
+    border-radius: 4px;
+    padding: 6px 12px; /* DateEdit yüksekliği ve genişliği */
+}</string>
+         </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_home">
           <widget class="QLabel" name="label_4">
@@ -422,7 +459,7 @@ QPushButton:checked{
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
+             <pointsize>-1</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -431,186 +468,13 @@ QPushButton:checked{
             <string>Home Page</string>
            </property>
           </widget>
-          <widget class="QCalendarWidget" name="calendarWidget">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>60</y>
-             <width>331</width>
-             <height>251</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QCalendarWidget {
-    border: 2px solid #ccc; /* Takvim çerçevesi rengi */
-    border-radius: 5px; /* Köşeleri yuvarlat */
-    background-color: #B8E2FF; /* Arka plan rengi */
-	font: 12pt;
-}
-/*
-QCalendarWidget QcalenderWidget{
-		alternate-background-color: B8E2FF;
-}?*/
-
-/* Takvim başlığı */
-QCalendarWidget QAbstractItemView {
-    background-color: #e0e0e0; /* Başlık arka plan rengi */
-    color: #333; /* Başlık metin rengi */
-    selection-color: white; /* Seçili tarih metin rengi */
-    selection-background-color: #0078d7; /* Seçili tarih arka plan rengi */
-}
-
-/* Takvim içeriği */
-QCalendarWidget QWidget#qt_calendar_navigationbar {
-    background-color: #fff; /* İçerik arka plan rengi */
-	border: 2px solid #B8E2FF;
-	border-bottom: 0px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-/* Takvim navigasyon butonları */
-QCalendarWidget QToolButton {
-    background-color: #ffffff; /* Navigasyon butonları arka plan rengi */
-    color: black; /* Navigasyon butonları metin rengi */
-    border: none; /* Kenarlık yok */
-    padding: 5px; /* Buton içeriği boşluğu */
-    width: 35px; /* Buton genişliği */
-    height: 20px; /* Buton yüksekliği */
-}
-
-/* Hover etkisi */
-QCalendarWidget QToolButton:hover {
-    background-color: #005ea2; /* Hover rengi */
-}
-
-/* Seçili tarih */
-QCalendarWidget QToolButton:selected {
-    background-color: #003f76; /* Seçili buton rengi */
-}
-/* Önceki ay ve sonraki ay butonları */
-QCalendarWidget QToolButton#qt_calendar_prevmonth {
-    background-color: transparent; /* Önceki ay butonu arka plan rengi */
-    color: white; /* Önceki ay butonu metin rengi */
-    border: none; /* Kenarlık yok */
-    padding: 5px; /* Buton içeriği boşluğu */
-    min-width: 13px; /* Buton genişliği */
-	max-width: 13px;
-	min-height: 13px;/* Buton yüksekliği */
-    max-height: 13px; 
-	margin-left: 5px;
-}
-
-QCalendarWidget QToolButton#qt_calendar_nextmonth {
-    background-color: transparent; /* Sonraki ay butonu arka plan rengi */
-    color: white; /* Sonraki ay butonu metin rengi */
-    border: none; /* Kenarlık yok */
-    padding: 5px; /* Buton içeriği boşluğu */
-    min-width: 13px; /* Buton genişliği */
-	max-width: 13px;
-	min-height: 13px;/* Buton yüksekliği */
-    max-height: 13px; 
-	margin-right: 5px;
-}
-/* Ay ve yıl bilgisi */
-QCalendarWidget QComboBox {
-    min-width: 100px; /* Minimum genişlik */
-    min-height: 30px; /* Minimum yükseklik */
-    padding: 5px; /* Buton içeriği boşluğu */
-    font-size: 13px; /* Yazı tipi boyutu */
-}
-</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton">
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>320</y>
-             <width>101</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-    font-family: Arial;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; 
-    background-color: #f0f0f0; 
-    border: 2px solid #fff6f4; 
-    border-radius: 5px;
-    padding: 8px 16px;
-}
-
-QPushButton:hover {
-    background-color: #e0e0e0; 
-    border-color: #e0e0e0; 
-}
-
-QPushButton:pressed {
-    background-color: #d0d0d0; 
-    border-color: #d0d0d0; 
-    border-style: inset;
-}</string>
-           </property>
-           <property name="text">
-            <string>Add New</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>500</y>
-             <width>261</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-    font-family: Arial;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; 
-    background-color: #f0f0f0; 
-    border: 2px solid #fff6f4; 
-    border-radius: 5px;
-    padding: 8px 16px;
-}
-
-QPushButton:hover {
-    background-color: #e0e0e0; 
-    border-color: #e0e0e0; 
-}
-
-QPushButton:pressed {
-    background-color: #d0d0d0; 
-    border-color: #d0d0d0; 
-    border-style: inset;
-}</string>
-           </property>
-           <property name="text">
-            <string>Save Changes</string>
-           </property>
-          </widget>
-          <widget class="QListWidget" name="listWidget">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>320</y>
-             <width>261</width>
-             <height>171</height>
-            </rect>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_8">
            <property name="geometry">
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>351</width>
-             <height>41</height>
+             <width>421</width>
+             <height>81</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -627,20 +491,135 @@ font: 11pt;</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
+          <widget class="QWidget" name="widget_2" native="true">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>641</width>
+             <height>401</height>
+            </rect>
+           </property>
+           <widget class="QCalendarWidget" name="calendarWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>60</y>
+              <width>331</width>
+              <height>251</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="listWidget">
+            <property name="geometry">
+             <rect>
+              <x>350</x>
+              <y>80</y>
+              <width>261</width>
+              <height>231</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="geometry">
+             <rect>
+              <x>350</x>
+              <y>330</y>
+              <width>261</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; 
+    background-color: #f0f0f0; 
+    border: 2px solid #fff6f4; 
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #e0e0e0; 
+    border-color: #e0e0e0; 
+}
+
+QPushButton:pressed {
+    background-color: #d0d0d0; 
+    border-color: #d0d0d0; 
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>Save Changes</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>20</y>
+              <width>101</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; 
+    background-color: #f0f0f0; 
+    border: 2px solid #fff6f4; 
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #e0e0e0; 
+    border-color: #e0e0e0; 
+}
+
+QPushButton:pressed {
+    background-color: #d0d0d0; 
+    border-color: #d0d0d0; 
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>Add New</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="comboBox_4">
+            <property name="geometry">
+             <rect>
+              <x>350</x>
+              <y>30</y>
+              <width>151</width>
+              <height>30</height>
+             </rect>
+            </property>
+           </widget>
+          </widget>
          </widget>
          <widget class="QWidget" name="page_dashboard">
           <widget class="QLabel" name="label_5">
            <property name="geometry">
             <rect>
              <x>240</x>
-             <y>210</y>
+             <y>500</y>
              <width>231</width>
              <height>61</height>
             </rect>
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
+             <pointsize>-1</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -649,17 +628,26 @@ font: 11pt;</string>
             <string>Dashboard Page</string>
            </property>
           </widget>
-          <widget class="QLabel" name="label_9">
+          <widget class="QWidget" name="widget_8" native="true">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>30</y>
-             <width>611</width>
-             <height>71</height>
+             <x>10</x>
+             <y>20</y>
+             <width>711</width>
+             <height>491</height>
             </rect>
            </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel {
+           <widget class="QLabel" name="label_9">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>10</y>
+              <width>611</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
     font-family: Arial;
     font-size: 14px;
     font-weight: bold;
@@ -672,31 +660,578 @@ font: 11pt;</string>
 QLabel:hover {
     background-color: #e0e0e0;
 }</string>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>90</y>
+              <width>691</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QWidget" name="widget_4" native="true">
+               <widget class="QFrame" name="frame">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>161</width>
+                  <height>80</height>
+                 </rect>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="label_12">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>10</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Oran</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_13">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>40</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Tamamlanan</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_14">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>30</y>
+                   <width>31</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Icon</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widget_5" native="true">
+               <widget class="QFrame" name="frame_2">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>161</width>
+                  <height>80</height>
+                 </rect>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="label_15">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>10</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_16">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>30</y>
+                   <width>31</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_17">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>40</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widget_6" native="true">
+               <widget class="QFrame" name="frame_3">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>161</width>
+                  <height>80</height>
+                 </rect>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="label_18">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>10</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_19">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>30</y>
+                   <width>31</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_20">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>40</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widget_7" native="true">
+               <widget class="QFrame" name="frame_4">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>161</width>
+                  <height>80</height>
+                 </rect>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="label_21">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>10</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_22">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>30</y>
+                   <width>31</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_23">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>40</y>
+                   <width>101</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </widget>
-         <widget class="QWidget" name="page_users">
-          <widget class="QLabel" name="label_6">
+         <widget class="QWidget" name="page_addtask">
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>70</y>
+             <width>94</width>
+             <height>291</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_25">
+              <property name="text">
+               <string>id</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_26">
+              <property name="text">
+               <string>Task Title</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_27">
+              <property name="text">
+               <string>Description</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_28">
+              <property name="text">
+               <string>Due_Date</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_30">
+              <property name="text">
+               <string>Completed</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_31">
+              <property name="text">
+               <string>user_id</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QLabel" name="label_32">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>380</y>
+             <width>101</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Priority</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>70</y>
+             <width>144</width>
+             <height>296</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_id"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_tasktitle"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_description"/>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="dateEdit_due"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_completed">
+              <item>
+               <property name="text">
+                <string/>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>True</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>False</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_userid"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QLabel" name="label_33">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>380</y>
+             <width>101</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Category</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_3">
+           <property name="geometry">
+            <rect>
+             <x>250</x>
+             <y>20</y>
+             <width>471</width>
+             <height>42</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_34">
+              <property name="text">
+               <string>List by category</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_kglistele">
+              <item>
+               <property name="text">
+                <string/>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Daily Routines</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Work</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Home</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QComboBox" name="comboBox_category">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>410</y>
+             <width>111</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Daily Routines</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Work</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Home</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QComboBox" name="comboBox_priority">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>410</y>
+             <width>111</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>480</y>
+             <width>721</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pushButton_addtasksw">
+              <property name="text">
+               <string>Add Task</string>
+              </property>
+              <property name="autoDefault">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_deletetask">
+              <property name="text">
+               <string>Delete Task</string>
+              </property>
+              <property name="autoDefault">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_updatetask">
+              <property name="text">
+               <string>Update Task</string>
+              </property>
+              <property name="autoDefault">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_listtask">
+              <property name="text">
+               <string>List Task</string>
+              </property>
+              <property name="autoDefault">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QListWidget" name="listWidget_task">
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>240</y>
-             <width>161</width>
-             <height>41</height>
+             <y>70</y>
+             <width>461</width>
+             <height>341</height>
             </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>20</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Users Page</string>
            </property>
           </widget>
          </widget>
@@ -712,7 +1247,7 @@ QLabel:hover {
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
+             <pointsize>-1</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -734,7 +1269,7 @@ QLabel:hover {
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
+             <pointsize>-1</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -748,15 +1283,15 @@ QLabel:hover {
           <widget class="QLabel" name="label_11">
            <property name="geometry">
             <rect>
-             <x>240</x>
-             <y>210</y>
+             <x>10</x>
+             <y>10</y>
              <width>191</width>
              <height>51</height>
             </rect>
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
+             <pointsize>-1</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -765,10 +1300,41 @@ QLabel:hover {
             <string>Profile Page</string>
            </property>
           </widget>
+          <widget class="QFrame" name="frame_5">
+           <property name="geometry">
+            <rect>
+             <x>399</x>
+             <y>20</y>
+             <width>311</width>
+             <height>531</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_24">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>20</y>
+              <width>68</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </widget>
          </widget>
         </widget>
        </item>
       </layout>
+      <zorder>stackedWidget</zorder>
+      <zorder>widget</zorder>
      </widget>
     </item>
     <item row="0" column="1">
@@ -780,20 +1346,13 @@ QLabel:hover {
 }
 
 QPushButton {
-	color:black;
-	text-align:left;
-	border:none;
-	height:30px;
-	padding-left:10px;
-	border-top-left-radius:10px;
-	border-bottom-left-radius:10px;
+    background-color: #01BFFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
 }
-
-QPushButton:checked{
-	background-color: rgb(218,218,218);
-	color: black;
-	font-weight:bold;
-}</string>
+</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <property name="spacing">
@@ -858,7 +1417,7 @@ QPushButton:checked{
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="spacing">
-          <number>15</number>
+          <number>2</number>
          </property>
          <property name="leftMargin">
           <number>0</number>
@@ -915,9 +1474,9 @@ QPushButton:checked{
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_users2">
+          <widget class="QPushButton" name="pushButton_addtask2">
            <property name="text">
-            <string>Users</string>
+            <string>Add Task</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -999,6 +1558,17 @@ QPushButton:checked{
      </widget>
     </item>
    </layout>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+   </widget>
   </widget>
  </widget>
  <resources>
@@ -1071,9 +1641,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_users</sender>
+   <sender>pushButton_addtask</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_users2</receiver>
+   <receiver>pushButton_addtask2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1135,9 +1705,9 @@ QPushButton:checked{
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_users2</sender>
+   <sender>pushButton_addtask2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_users</receiver>
+   <receiver>pushButton_addtask</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">

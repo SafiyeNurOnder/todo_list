@@ -4,7 +4,6 @@ from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5.uic import loadUi
 
-
 from models import session
 from models.user import User
 
@@ -41,8 +40,20 @@ class Login(QDialog):
 
         # kullanıcıyı veritabanında sorgulama - READ
         user = session.query(User).filter_by(email=email).first()
-        if user and user.password == password:
-            print("Successfully logged in with email: ", email, "and password: ", password)
+
+        # bu kısım olunca if bloğu çalıştı. (şifre db'de byte dizisi olarak saklanıyor. kullanıcın girdiği şifre ile doğrudan karşılaştırılamaz)
+        print(f"Email: {email}")
+        print(f"User from DB: {user}")
+        if user:
+            print(f"User ID: {user.id}")
+            print(f"User Email: {user.email}")
+            print(f"User Password: {user.password}")
+
+        # Şifreleri byte dizisine dönüştürme
+        password_bytes = password.encode('utf-8')
+
+        if user and user.password == password_bytes:
+            QMessageBox.information(self, "Success", "Login successful!")
             self.gotosidebar()
         else:
             QMessageBox.warning(self, "Warning", "Login Failed!")

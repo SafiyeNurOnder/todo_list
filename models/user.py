@@ -1,4 +1,5 @@
-from sqlalchemy import Column, String, Integer
+from passlib.handlers.bcrypt import bcrypt
+from sqlalchemy import Column, String, Integer, LargeBinary
 from sqlalchemy.orm import relationship
 
 from models import Base
@@ -13,3 +14,4 @@ class User(Base):
 
     # kullanıcı ile ilişki kurmak için relationship tanımlanabilir
     tasks = relationship("Task", back_populates="user")
+

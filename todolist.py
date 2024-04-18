@@ -16,7 +16,8 @@ class TodoList:
     def get_task_by_id(self,task_id):
         return self.session.query(Task).filter_by(id=task_id).first()
 
-    def update_task(self, task_id, title=None, description=None, due_date=None, priority=None, completed=None, user_id=None):
+    def update_task(self, task_id, title=None, description=None, due_date=None, priority=None, completed=None, user_id=None,
+                    categories=None):
         task = self.get_task_by_id(task_id)
         if task:
             if title:
@@ -31,6 +32,8 @@ class TodoList:
                 task.completed = completed
             if user_id is not None:
                 task.user_id = user_id
+            if categories is not None:
+                task.categories = categories
             self.session.commit()
 
     def delete_task(self, task_id):

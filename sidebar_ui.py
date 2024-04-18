@@ -79,17 +79,17 @@ class Ui_MainWindow(object):
         self.pushButton_dashboard.setAutoExclusive(True)
         self.pushButton_dashboard.setObjectName("pushButton_dashboard")
         self.verticalLayout.addWidget(self.pushButton_dashboard)
-        self.pushButton_users = QtWidgets.QPushButton(self.widget_icon_menu)
-        self.pushButton_users.setText("")
+        self.pushButton_addtask = QtWidgets.QPushButton(self.widget_icon_menu)
+        self.pushButton_addtask.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/icon/icons/users_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon2.addPixmap(QtGui.QPixmap(":/icon/icons/users_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_users.setIcon(icon2)
-        self.pushButton_users.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_users.setCheckable(True)
-        self.pushButton_users.setAutoExclusive(True)
-        self.pushButton_users.setObjectName("pushButton_users")
-        self.verticalLayout.addWidget(self.pushButton_users)
+        self.pushButton_addtask.setIcon(icon2)
+        self.pushButton_addtask.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_addtask.setCheckable(True)
+        self.pushButton_addtask.setAutoExclusive(True)
+        self.pushButton_addtask.setObjectName("pushButton_addtask")
+        self.verticalLayout.addWidget(self.pushButton_addtask)
         self.pushButton_settings = QtWidgets.QPushButton(self.widget_icon_menu)
         self.pushButton_settings.setText("")
         icon3 = QtGui.QIcon()
@@ -185,52 +185,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        self.calendarWidget = QtWidgets.QCalendarWidget(self.page_home)
+        self.label_8 = QtWidgets.QLabel(self.page_home)
+        self.label_8.setGeometry(QtCore.QRect(10, 10, 421, 81))
+        self.label_8.setStyleSheet("border-radius: 10px;\n"
+"font-size: 24px;\n"
+"background: #01BFFF;\n"
+"Color: white;\n"
+"font: 11pt;")
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.widget_2 = QtWidgets.QWidget(self.page_home)
+        self.widget_2.setGeometry(QtCore.QRect(30, 120, 641, 401))
+        self.widget_2.setObjectName("widget_2")
+        self.calendarWidget = QtWidgets.QCalendarWidget(self.widget_2)
         self.calendarWidget.setGeometry(QtCore.QRect(10, 60, 331, 251))
-        self.calendarWidget.setStyleSheet("QCalendarWidget {\n"
-"    border: 2px solid #ccc; /* Takvim çerçevesi rengi */\n"
-"    border-radius: 5px; /* Köşeleri yuvarlat */\n"
-"    background-color: #B8E2FF; /* Arka plan rengi */\n"
-"    font: 12pt;\n"
-"}\n"
-"/*\n"
-"QCalendarWidget QcalenderWidget{\n"
-"        alternate-background-color: B8E2FF;\n"
-"}?*/\n"
-"\n"
-"/* Takvim başlığı */\n"
-"QCalendarWidget QAbstractItemView {\n"
-"    background-color: #e0e0e0; /* Başlık arka plan rengi */\n"
-"    color: #333; /* Başlık metin rengi */\n"
-"    selection-color: white; /* Seçili tarih metin rengi */\n"
-"    selection-background-color: #0078d7; /* Seçili tarih arka plan rengi */\n"
-"}\n"
-"\n"
-"/* Takvim içeriği */\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
-"    background-color: #fff; /* İçerik arka plan rengi */\n"
-"    border: 2px solid #B8E2FF;\n"
-"    border-bottom: 0px;\n"
-"    border-top-left-radius: 5px;\n"
-"    border-top-right-radius: 5px;\n"
-"}\n"
-"\n"
-"/* Takvim navigasyon butonları */\n"
-"QCalendarWidget QToolButton {\n"
-"    background-color: #ffffff; /* Navigasyon butonları arka plan rengi */\n"
-"    color: black; /* Navigasyon butonları metin rengi */\n"
-"    border: none; /* Kenarlık yok */\n"
-"    padding: 5px; /* Buton içeriği boşluğu */\n"
-"    width: 35px; /* Buton genişliği */\n"
-"    height: 20px; /* Buton yüksekliği */\n"
-"}\n"
-"\n"
-"/* Hover etkisi */\n"
-"QCalendarWidget QToolButton:hover {\n"
-"    background-color: #005ea2; /* Hover rengi */\n"
-"}\n"
-"\n"
-"/* Seçili tarih */\n"
+        self.calendarWidget.setStyleSheet("/* Seçili tarih */\n"
 "QCalendarWidget QToolButton:selected {\n"
 "    background-color: #003f76; /* Seçili buton rengi */\n"
 "}\n"
@@ -258,41 +227,13 @@ class Ui_MainWindow(object):
 "    max-height: 13px; \n"
 "    margin-right: 5px;\n"
 "}\n"
-"/* Ay ve yıl bilgisi */\n"
-"QCalendarWidget QComboBox {\n"
-"    min-width: 100px; /* Minimum genişlik */\n"
-"    min-height: 30px; /* Minimum yükseklik */\n"
-"    padding: 5px; /* Buton içeriği boşluğu */\n"
-"    font-size: 13px; /* Yazı tipi boyutu */\n"
-"}\n"
 "")
         self.calendarWidget.setObjectName("calendarWidget")
-        self.pushButton = QtWidgets.QPushButton(self.page_home)
-        self.pushButton.setGeometry(QtCore.QRect(320, 320, 101, 41))
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    font-family: Arial;\n"
-"    font-size: 14px;\n"
-"    font-weight: bold;\n"
-"    color: #333; \n"
-"    background-color: #f0f0f0; \n"
-"    border: 2px solid #fff6f4; \n"
-"    border-radius: 5px;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #e0e0e0; \n"
-"    border-color: #e0e0e0; \n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #d0d0d0; \n"
-"    border-color: #d0d0d0; \n"
-"    border-style: inset;\n"
-"}")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.page_home)
-        self.pushButton_2.setGeometry(QtCore.QRect(40, 500, 261, 41))
+        self.listWidget = QtWidgets.QListWidget(self.widget_2)
+        self.listWidget.setGeometry(QtCore.QRect(350, 80, 261, 231))
+        self.listWidget.setObjectName("listWidget")
+        self.pushButton_2 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_2.setGeometry(QtCore.QRect(350, 330, 261, 41))
         self.pushButton_2.setStyleSheet("QPushButton {\n"
 "    font-family: Arial;\n"
 "    font-size: 14px;\n"
@@ -315,31 +256,49 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.listWidget = QtWidgets.QListWidget(self.page_home)
-        self.listWidget.setGeometry(QtCore.QRect(40, 320, 261, 171))
-        self.listWidget.setObjectName("listWidget")
-        self.label_8 = QtWidgets.QLabel(self.page_home)
-        self.label_8.setGeometry(QtCore.QRect(10, 10, 351, 41))
-        self.label_8.setStyleSheet("border-radius: 10px;\n"
-"font-size: 24px;\n"
-"background: #01BFFF;\n"
-"Color: white;\n"
-"font: 11pt;")
-        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_8.setObjectName("label_8")
+        self.pushButton = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton.setGeometry(QtCore.QRect(510, 20, 101, 41))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    font-family: Arial;\n"
+"    font-size: 14px;\n"
+"    font-weight: bold;\n"
+"    color: #333; \n"
+"    background-color: #f0f0f0; \n"
+"    border: 2px solid #fff6f4; \n"
+"    border-radius: 5px;\n"
+"    padding: 8px 16px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #e0e0e0; \n"
+"    border-color: #e0e0e0; \n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #d0d0d0; \n"
+"    border-color: #d0d0d0; \n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.comboBox_4 = QtWidgets.QComboBox(self.widget_2)
+        self.comboBox_4.setGeometry(QtCore.QRect(350, 30, 151, 30))
+        self.comboBox_4.setObjectName("comboBox_4")
         self.stackedWidget.addWidget(self.page_home)
         self.page_dashboard = QtWidgets.QWidget()
         self.page_dashboard.setObjectName("page_dashboard")
         self.label_5 = QtWidgets.QLabel(self.page_dashboard)
-        self.label_5.setGeometry(QtCore.QRect(240, 210, 231, 61))
+        self.label_5.setGeometry(QtCore.QRect(240, 500, 231, 61))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
-        self.label_9 = QtWidgets.QLabel(self.page_dashboard)
-        self.label_9.setGeometry(QtCore.QRect(50, 30, 611, 71))
+        self.widget_8 = QtWidgets.QWidget(self.page_dashboard)
+        self.widget_8.setGeometry(QtCore.QRect(10, 20, 711, 491))
+        self.widget_8.setObjectName("widget_8")
+        self.label_9 = QtWidgets.QLabel(self.widget_8)
+        self.label_9.setGeometry(QtCore.QRect(50, 10, 611, 71))
         self.label_9.setStyleSheet("QLabel {\n"
 "    font-family: Arial;\n"
 "    font-size: 14px;\n"
@@ -354,18 +313,215 @@ class Ui_MainWindow(object):
 "    background-color: #e0e0e0;\n"
 "}")
         self.label_9.setObjectName("label_9")
+        self.layoutWidget = QtWidgets.QWidget(self.widget_8)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 90, 691, 81))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.widget_4 = QtWidgets.QWidget(self.layoutWidget)
+        self.widget_4.setObjectName("widget_4")
+        self.frame = QtWidgets.QFrame(self.widget_4)
+        self.frame.setGeometry(QtCore.QRect(0, 0, 161, 80))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.label_12 = QtWidgets.QLabel(self.frame)
+        self.label_12.setGeometry(QtCore.QRect(10, 10, 101, 22))
+        self.label_12.setObjectName("label_12")
+        self.label_13 = QtWidgets.QLabel(self.frame)
+        self.label_13.setGeometry(QtCore.QRect(10, 40, 101, 22))
+        self.label_13.setObjectName("label_13")
+        self.label_14 = QtWidgets.QLabel(self.frame)
+        self.label_14.setGeometry(QtCore.QRect(120, 30, 31, 22))
+        self.label_14.setObjectName("label_14")
+        self.horizontalLayout_5.addWidget(self.widget_4)
+        self.widget_5 = QtWidgets.QWidget(self.layoutWidget)
+        self.widget_5.setObjectName("widget_5")
+        self.frame_2 = QtWidgets.QFrame(self.widget_5)
+        self.frame_2.setGeometry(QtCore.QRect(0, 0, 161, 80))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.label_15 = QtWidgets.QLabel(self.frame_2)
+        self.label_15.setGeometry(QtCore.QRect(10, 10, 101, 22))
+        self.label_15.setObjectName("label_15")
+        self.label_16 = QtWidgets.QLabel(self.frame_2)
+        self.label_16.setGeometry(QtCore.QRect(120, 30, 31, 22))
+        self.label_16.setObjectName("label_16")
+        self.label_17 = QtWidgets.QLabel(self.frame_2)
+        self.label_17.setGeometry(QtCore.QRect(10, 40, 101, 22))
+        self.label_17.setObjectName("label_17")
+        self.horizontalLayout_5.addWidget(self.widget_5)
+        self.widget_6 = QtWidgets.QWidget(self.layoutWidget)
+        self.widget_6.setObjectName("widget_6")
+        self.frame_3 = QtWidgets.QFrame(self.widget_6)
+        self.frame_3.setGeometry(QtCore.QRect(0, 0, 161, 80))
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.label_18 = QtWidgets.QLabel(self.frame_3)
+        self.label_18.setGeometry(QtCore.QRect(10, 10, 101, 22))
+        self.label_18.setObjectName("label_18")
+        self.label_19 = QtWidgets.QLabel(self.frame_3)
+        self.label_19.setGeometry(QtCore.QRect(120, 30, 31, 22))
+        self.label_19.setObjectName("label_19")
+        self.label_20 = QtWidgets.QLabel(self.frame_3)
+        self.label_20.setGeometry(QtCore.QRect(10, 40, 101, 22))
+        self.label_20.setObjectName("label_20")
+        self.horizontalLayout_5.addWidget(self.widget_6)
+        self.widget_7 = QtWidgets.QWidget(self.layoutWidget)
+        self.widget_7.setObjectName("widget_7")
+        self.frame_4 = QtWidgets.QFrame(self.widget_7)
+        self.frame_4.setGeometry(QtCore.QRect(0, 0, 161, 80))
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.label_21 = QtWidgets.QLabel(self.frame_4)
+        self.label_21.setGeometry(QtCore.QRect(10, 10, 101, 22))
+        self.label_21.setObjectName("label_21")
+        self.label_22 = QtWidgets.QLabel(self.frame_4)
+        self.label_22.setGeometry(QtCore.QRect(120, 30, 31, 22))
+        self.label_22.setObjectName("label_22")
+        self.label_23 = QtWidgets.QLabel(self.frame_4)
+        self.label_23.setGeometry(QtCore.QRect(10, 40, 101, 22))
+        self.label_23.setObjectName("label_23")
+        self.horizontalLayout_5.addWidget(self.widget_7)
         self.stackedWidget.addWidget(self.page_dashboard)
-        self.page_users = QtWidgets.QWidget()
-        self.page_users.setObjectName("page_users")
-        self.label_6 = QtWidgets.QLabel(self.page_users)
-        self.label_6.setGeometry(QtCore.QRect(260, 240, 161, 41))
+        self.page_addtask = QtWidgets.QWidget()
+        self.page_addtask.setObjectName("page_addtask")
+        self.label_6 = QtWidgets.QLabel(self.page_addtask)
+        self.label_6.setGeometry(QtCore.QRect(10, 10, 161, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
-        self.stackedWidget.addWidget(self.page_users)
+        self.layoutWidget1 = QtWidgets.QWidget(self.page_addtask)
+        self.layoutWidget1.setGeometry(QtCore.QRect(10, 100, 91, 251))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.layoutWidget1)
+        self.verticalLayout_6.setContentsMargins(0, 5, 0, 5)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.label_25 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_25.setObjectName("label_25")
+        self.verticalLayout_6.addWidget(self.label_25)
+        self.label_26 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_26.setObjectName("label_26")
+        self.verticalLayout_6.addWidget(self.label_26)
+        self.label_27 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_27.setObjectName("label_27")
+        self.verticalLayout_6.addWidget(self.label_27)
+        self.label_28 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_28.setObjectName("label_28")
+        self.verticalLayout_6.addWidget(self.label_28)
+        self.label_30 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_30.setObjectName("label_30")
+        self.verticalLayout_6.addWidget(self.label_30)
+        self.label_31 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_31.setObjectName("label_31")
+        self.verticalLayout_6.addWidget(self.label_31)
+        self.label_32 = QtWidgets.QLabel(self.page_addtask)
+        self.label_32.setGeometry(QtCore.QRect(130, 380, 101, 22))
+        self.label_32.setObjectName("label_32")
+        self.layoutWidget_2 = QtWidgets.QWidget(self.page_addtask)
+        self.layoutWidget_2.setGeometry(QtCore.QRect(100, 100, 144, 251))
+        self.layoutWidget_2.setObjectName("layoutWidget_2")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.layoutWidget_2)
+        self.verticalLayout_7.setContentsMargins(0, 5, 0, 5)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.lineEdit_id = QtWidgets.QLineEdit(self.layoutWidget_2)
+        self.lineEdit_id.setObjectName("lineEdit_id")
+        self.verticalLayout_7.addWidget(self.lineEdit_id)
+        self.lineEdit_tasktitle = QtWidgets.QLineEdit(self.layoutWidget_2)
+        self.lineEdit_tasktitle.setObjectName("lineEdit_tasktitle")
+        self.verticalLayout_7.addWidget(self.lineEdit_tasktitle)
+        self.lineEdit_description = QtWidgets.QLineEdit(self.layoutWidget_2)
+        self.lineEdit_description.setObjectName("lineEdit_description")
+        self.verticalLayout_7.addWidget(self.lineEdit_description)
+        self.dateEdit_due = QtWidgets.QDateEdit(self.layoutWidget_2)
+        self.dateEdit_due.setObjectName("dateEdit_due")
+        self.verticalLayout_7.addWidget(self.dateEdit_due)
+        self.comboBox_completed = QtWidgets.QComboBox(self.layoutWidget_2)
+        self.comboBox_completed.setObjectName("comboBox_completed")
+        self.comboBox_completed.addItem("")
+        self.comboBox_completed.setItemText(0, "")
+        self.comboBox_completed.addItem("")
+        self.comboBox_completed.addItem("")
+        self.verticalLayout_7.addWidget(self.comboBox_completed)
+        self.lineEdit_userid = QtWidgets.QLineEdit(self.layoutWidget_2)
+        self.lineEdit_userid.setObjectName("lineEdit_userid")
+        self.verticalLayout_7.addWidget(self.lineEdit_userid)
+        self.label_33 = QtWidgets.QLabel(self.page_addtask)
+        self.label_33.setGeometry(QtCore.QRect(10, 380, 101, 22))
+        self.label_33.setObjectName("label_33")
+        self.layoutWidget_3 = QtWidgets.QWidget(self.page_addtask)
+        self.layoutWidget_3.setGeometry(QtCore.QRect(250, 50, 471, 32))
+        self.layoutWidget_3.setObjectName("layoutWidget_3")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.layoutWidget_3)
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6.setSpacing(10)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.label_34 = QtWidgets.QLabel(self.layoutWidget_3)
+        self.label_34.setObjectName("label_34")
+        self.horizontalLayout_6.addWidget(self.label_34)
+        self.comboBox_kglistele = QtWidgets.QComboBox(self.layoutWidget_3)
+        self.comboBox_kglistele.setObjectName("comboBox_kglistele")
+        self.comboBox_kglistele.addItem("")
+        self.comboBox_kglistele.setItemText(0, "")
+        self.comboBox_kglistele.addItem("")
+        self.comboBox_kglistele.addItem("")
+        self.comboBox_kglistele.addItem("")
+        self.horizontalLayout_6.addWidget(self.comboBox_kglistele)
+        self.pushButton_kglistele = QtWidgets.QPushButton(self.layoutWidget_3)
+        self.pushButton_kglistele.setAutoDefault(True)
+        self.pushButton_kglistele.setObjectName("pushButton_kglistele")
+        self.horizontalLayout_6.addWidget(self.pushButton_kglistele)
+        self.comboBox_category = QtWidgets.QComboBox(self.page_addtask)
+        self.comboBox_category.setGeometry(QtCore.QRect(10, 410, 111, 30))
+        self.comboBox_category.setEditable(False)
+        self.comboBox_category.setObjectName("comboBox_category")
+        self.comboBox_category.addItem("")
+        self.comboBox_category.setItemText(0, "")
+        self.comboBox_category.addItem("")
+        self.comboBox_category.addItem("")
+        self.comboBox_category.addItem("")
+        self.comboBox_priority = QtWidgets.QComboBox(self.page_addtask)
+        self.comboBox_priority.setGeometry(QtCore.QRect(130, 410, 111, 30))
+        self.comboBox_priority.setObjectName("comboBox_priority")
+        self.comboBox_priority.addItem("")
+        self.comboBox_priority.setItemText(0, "")
+        self.comboBox_priority.addItem("")
+        self.comboBox_priority.addItem("")
+        self.comboBox_priority.addItem("")
+        self.layoutWidget_4 = QtWidgets.QWidget(self.page_addtask)
+        self.layoutWidget_4.setGeometry(QtCore.QRect(0, 480, 721, 36))
+        self.layoutWidget_4.setObjectName("layoutWidget_4")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.layoutWidget_4)
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_7.setSpacing(20)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.pushButton_addtasksw = QtWidgets.QPushButton(self.layoutWidget_4)
+        self.pushButton_addtasksw.setAutoDefault(True)
+        self.pushButton_addtasksw.setObjectName("pushButton_addtasksw")
+        self.horizontalLayout_7.addWidget(self.pushButton_addtasksw)
+        self.pushButton_deletetask = QtWidgets.QPushButton(self.layoutWidget_4)
+        self.pushButton_deletetask.setAutoDefault(True)
+        self.pushButton_deletetask.setObjectName("pushButton_deletetask")
+        self.horizontalLayout_7.addWidget(self.pushButton_deletetask)
+        self.pushButton_updatetask = QtWidgets.QPushButton(self.layoutWidget_4)
+        self.pushButton_updatetask.setAutoDefault(True)
+        self.pushButton_updatetask.setObjectName("pushButton_updatetask")
+        self.horizontalLayout_7.addWidget(self.pushButton_updatetask)
+        self.pushButton_listtask = QtWidgets.QPushButton(self.layoutWidget_4)
+        self.pushButton_listtask.setAutoDefault(True)
+        self.pushButton_listtask.setObjectName("pushButton_listtask")
+        self.horizontalLayout_7.addWidget(self.pushButton_listtask)
+        self.listWidget_task = QtWidgets.QListWidget(self.page_addtask)
+        self.listWidget_task.setGeometry(QtCore.QRect(260, 100, 461, 341))
+        self.listWidget_task.setObjectName("listWidget_task")
+        self.stackedWidget.addWidget(self.page_addtask)
         self.page_settings = QtWidgets.QWidget()
         self.page_settings.setObjectName("page_settings")
         self.label_7 = QtWidgets.QLabel(self.page_settings)
@@ -391,15 +547,25 @@ class Ui_MainWindow(object):
         self.page_profile = QtWidgets.QWidget()
         self.page_profile.setObjectName("page_profile")
         self.label_11 = QtWidgets.QLabel(self.page_profile)
-        self.label_11.setGeometry(QtCore.QRect(240, 210, 191, 51))
+        self.label_11.setGeometry(QtCore.QRect(10, 10, 191, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.label_11.setFont(font)
         self.label_11.setObjectName("label_11")
+        self.frame_5 = QtWidgets.QFrame(self.page_profile)
+        self.frame_5.setGeometry(QtCore.QRect(399, 20, 311, 531))
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.label_24 = QtWidgets.QLabel(self.frame_5)
+        self.label_24.setGeometry(QtCore.QRect(20, 20, 68, 22))
+        self.label_24.setObjectName("label_24")
         self.stackedWidget.addWidget(self.page_profile)
         self.verticalLayout_5.addWidget(self.stackedWidget)
+        self.stackedWidget.raise_()
+        self.widget.raise_()
         self.gridLayout.addWidget(self.widget_3, 0, 2, 1, 1)
         self.widget_full_menu = QtWidgets.QWidget(self.centralwidget)
         self.widget_full_menu.setStyleSheet("QWidget{\n"
@@ -463,13 +629,13 @@ class Ui_MainWindow(object):
         self.pushButton_dashboard2.setAutoExclusive(True)
         self.pushButton_dashboard2.setObjectName("pushButton_dashboard2")
         self.verticalLayout_2.addWidget(self.pushButton_dashboard2)
-        self.pushButton_users2 = QtWidgets.QPushButton(self.widget_full_menu)
-        self.pushButton_users2.setIcon(icon2)
-        self.pushButton_users2.setIconSize(QtCore.QSize(14, 14))
-        self.pushButton_users2.setCheckable(True)
-        self.pushButton_users2.setAutoExclusive(True)
-        self.pushButton_users2.setObjectName("pushButton_users2")
-        self.verticalLayout_2.addWidget(self.pushButton_users2)
+        self.pushButton_addtask2 = QtWidgets.QPushButton(self.widget_full_menu)
+        self.pushButton_addtask2.setIcon(icon2)
+        self.pushButton_addtask2.setIconSize(QtCore.QSize(14, 14))
+        self.pushButton_addtask2.setCheckable(True)
+        self.pushButton_addtask2.setAutoExclusive(True)
+        self.pushButton_addtask2.setObjectName("pushButton_addtask2")
+        self.verticalLayout_2.addWidget(self.pushButton_addtask2)
         self.pushButton_settings2 = QtWidgets.QPushButton(self.widget_full_menu)
         self.pushButton_settings2.setIcon(icon3)
         self.pushButton_settings2.setIconSize(QtCore.QSize(14, 14))
@@ -486,19 +652,25 @@ class Ui_MainWindow(object):
         self.pushButton_exit2.setObjectName("pushButton_exit2")
         self.verticalLayout_4.addWidget(self.pushButton_exit2)
         self.gridLayout.addWidget(self.widget_full_menu, 0, 1, 1, 1)
+        self.layoutWidget2 = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget2.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.layoutWidget2.setObjectName("layoutWidget2")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.layoutWidget2)
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(2)
         self.pushButton_change.toggled['bool'].connect(self.widget_icon_menu.setVisible) # type: ignore
         self.pushButton_change.toggled['bool'].connect(self.widget_full_menu.setHidden) # type: ignore
         self.pushButton_home.toggled['bool'].connect(self.pushButton_home2.setChecked) # type: ignore
         self.pushButton_dashboard.toggled['bool'].connect(self.pushButton_dashboard2.setChecked) # type: ignore
-        self.pushButton_users.toggled['bool'].connect(self.pushButton_users2.setChecked) # type: ignore
+        self.pushButton_addtask.toggled['bool'].connect(self.pushButton_addtask2.setChecked) # type: ignore
         self.pushButton_settings.toggled['bool'].connect(self.pushButton_settings2.setChecked) # type: ignore
         self.pushButton_home2.toggled['bool'].connect(self.pushButton_home.setChecked) # type: ignore
         self.pushButton_dashboard2.toggled['bool'].connect(self.pushButton_dashboard.setChecked) # type: ignore
-        self.pushButton_users2.toggled['bool'].connect(self.pushButton_users.setChecked) # type: ignore
+        self.pushButton_addtask2.toggled['bool'].connect(self.pushButton_addtask.setChecked) # type: ignore
         self.pushButton_settings2.toggled['bool'].connect(self.pushButton_settings.setChecked) # type: ignore
         self.pushButton_exit.toggled['bool'].connect(MainWindow.close) # type: ignore
         self.pushButton_exit2.toggled['bool'].connect(MainWindow.close) # type: ignore
@@ -509,19 +681,57 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lineEdit_search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.label_4.setText(_translate("MainWindow", "Home Page"))
-        self.pushButton.setText(_translate("MainWindow", "Add New"))
-        self.pushButton_2.setText(_translate("MainWindow", "Save Changes"))
         self.label_8.setText(_translate("MainWindow", "Daily Task Planner"))
+        self.pushButton_2.setText(_translate("MainWindow", "Save Changes"))
+        self.pushButton.setText(_translate("MainWindow", "Add New"))
         self.label_5.setText(_translate("MainWindow", "Dashboard Page"))
         self.label_9.setText(_translate("MainWindow", "TextLabel"))
-        self.label_6.setText(_translate("MainWindow", "Users Page"))
+        self.label_12.setText(_translate("MainWindow", "Oran"))
+        self.label_13.setText(_translate("MainWindow", "Tamamlanan"))
+        self.label_14.setText(_translate("MainWindow", "Icon"))
+        self.label_15.setText(_translate("MainWindow", "TextLabel"))
+        self.label_16.setText(_translate("MainWindow", "TextLabel"))
+        self.label_17.setText(_translate("MainWindow", "TextLabel"))
+        self.label_18.setText(_translate("MainWindow", "TextLabel"))
+        self.label_19.setText(_translate("MainWindow", "TextLabel"))
+        self.label_20.setText(_translate("MainWindow", "TextLabel"))
+        self.label_21.setText(_translate("MainWindow", "TextLabel"))
+        self.label_22.setText(_translate("MainWindow", "TextLabel"))
+        self.label_23.setText(_translate("MainWindow", "TextLabel"))
+        self.label_6.setText(_translate("MainWindow", "Add Task"))
+        self.label_25.setText(_translate("MainWindow", "id"))
+        self.label_26.setText(_translate("MainWindow", "Task Title"))
+        self.label_27.setText(_translate("MainWindow", "Description"))
+        self.label_28.setText(_translate("MainWindow", "Due_Date"))
+        self.label_30.setText(_translate("MainWindow", "Completed"))
+        self.label_31.setText(_translate("MainWindow", "user_id"))
+        self.label_32.setText(_translate("MainWindow", "Priority"))
+        self.comboBox_completed.setItemText(1, _translate("MainWindow", "True"))
+        self.comboBox_completed.setItemText(2, _translate("MainWindow", "False"))
+        self.label_33.setText(_translate("MainWindow", "Category"))
+        self.label_34.setText(_translate("MainWindow", "Kategoriye göre listele"))
+        self.comboBox_kglistele.setItemText(1, _translate("MainWindow", "Daily Routines"))
+        self.comboBox_kglistele.setItemText(2, _translate("MainWindow", "Work"))
+        self.comboBox_kglistele.setItemText(3, _translate("MainWindow", "Home"))
+        self.pushButton_kglistele.setText(_translate("MainWindow", "PushButton"))
+        self.comboBox_category.setItemText(1, _translate("MainWindow", "Daily Routines"))
+        self.comboBox_category.setItemText(2, _translate("MainWindow", "Work"))
+        self.comboBox_category.setItemText(3, _translate("MainWindow", "Home"))
+        self.comboBox_priority.setItemText(1, _translate("MainWindow", "1"))
+        self.comboBox_priority.setItemText(2, _translate("MainWindow", "2"))
+        self.comboBox_priority.setItemText(3, _translate("MainWindow", "3"))
+        self.pushButton_addtasksw.setText(_translate("MainWindow", "Add Task"))
+        self.pushButton_deletetask.setText(_translate("MainWindow", "Delete Task"))
+        self.pushButton_updatetask.setText(_translate("MainWindow", "Update Task"))
+        self.pushButton_listtask.setText(_translate("MainWindow", "List Task"))
         self.label_7.setText(_translate("MainWindow", "Settings Page"))
         self.label_10.setText(_translate("MainWindow", "Search Page"))
         self.label_11.setText(_translate("MainWindow", "Profile Page"))
+        self.label_24.setText(_translate("MainWindow", "TextLabel"))
         self.label_3.setText(_translate("MainWindow", "SideBar"))
         self.pushButton_home2.setText(_translate("MainWindow", "Home"))
         self.pushButton_dashboard2.setText(_translate("MainWindow", "Dashboard"))
-        self.pushButton_users2.setText(_translate("MainWindow", "Users"))
+        self.pushButton_addtask2.setText(_translate("MainWindow", "Add Task"))
         self.pushButton_settings2.setText(_translate("MainWindow", "Settings"))
         self.pushButton_exit2.setText(_translate("MainWindow", "Exit"))
 import resource_rc
