@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment="add, delete, update, list">
+    <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment="search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/cross_icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/dashboard_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/homepage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/homepage_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/logout_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/plus_icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/settings_icon" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/settings_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/tic_icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/trash_icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/users_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/verticallines_icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resource.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/resource_rc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sidebar.ui" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +180,9 @@
       <workItem from="1713355883768" duration="2693000" />
       <workItem from="1713420770843" duration="2941000" />
       <workItem from="1713424005371" duration="9760000" />
-      <workItem from="1713448027683" duration="683000" />
+      <workItem from="1713448027683" duration="931000" />
+      <workItem from="1713449569871" duration="262000" />
+      <workItem from="1713507413888" duration="6365000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <option name="closed" value="true" />
@@ -333,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713431083755</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="search">
+      <option name="closed" value="true" />
+      <created>1713449204809</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713449204809</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,11 +351,12 @@
     <MESSAGE value="project file" />
     <MESSAGE value="." />
     <MESSAGE value="add, delete, update, list" />
-    <option name="LAST_COMMIT_MESSAGE" value="add, delete, update, list" />
+    <MESSAGE value="search" />
+    <option name="LAST_COMMIT_MESSAGE" value="search" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$database.coverage" NAME="database Coverage Results" MODIFIED="1711097996615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$app.coverage" NAME="app Coverage Results" MODIFIED="1713441392443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$app.coverage" NAME="app Coverage Results" MODIFIED="1713516143765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$main.coverage" NAME="main Coverage Results" MODIFIED="1710925849264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$login.coverage" NAME="login Coverage Results" MODIFIED="1711549273165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_hello_world_devops_project$sidebar.coverage" NAME="sidebar Coverage Results" MODIFIED="1711968503936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

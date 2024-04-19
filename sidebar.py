@@ -1,3 +1,5 @@
+from PyQt5.QtCore import QSettings
+
 from models import session
 from models.task import Task
 from sidebar_ui import Ui_MainWindow
@@ -9,6 +11,9 @@ class SideBar(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle('SideBar Menu')
+
+        # QSettings için anahtar ve uygulama adını ayarla
+        # self.settings = QSettings("MySettings", "todoList")
 
         self.pushButton_home.clicked.connect(self.switch_to_page_home)
         self.pushButton_home2.clicked.connect(self.switch_to_page_home)
@@ -32,6 +37,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_listtask.clicked.connect(self.load_task)
         self.comboBox_kglistele.currentIndexChanged.connect(self.load_tasks_by_category)
         self.pushButton_search.clicked.connect(self.search_page)
+        self.pushButton_user.clicked.connect(self.profile_page)
 
 
     def switch_to_page_home(self):
@@ -251,3 +257,10 @@ class SideBar(QMainWindow, Ui_MainWindow):
             self.stackedWidget.setCurrentIndex(5)
         else:
             QMessageBox.warning(self, "Warning", "No matching page found!")
+
+    def profile_page(self):
+        QMessageBox.warning(self, "Test", "Test Profile")
+
+        self.lEdit_username.setText(self.user_data['username'])
+        self.lEdit_email.setText(self.user_data['email'])
+        self.lEdit_email.setText(self.user_data['password'])
