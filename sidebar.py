@@ -39,6 +39,19 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_search.clicked.connect(self.search_page)
         self.pushButton_user.clicked.connect(self.profile_page)
 
+    def checkSessions(self): # QSettings ile ilgili eklemeler
+        # Oturum bilgilerini QSettings'den yükle
+        from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+        settings = QSettings(APP_ORG_NAME, APP_NAME)
+        username = settings.value(SETTINGS_KEY + "/username")
+        email = settings.value(SETTINGS_KEY + "/email")
+
+        if username and email:
+            # Oturum açık, sidebar işlevselliğini göster
+            self.showSidebarFunctionalities()
+        else:
+            # Oturum açık değil, oturum açma sayfasına yönlendir
+            self.goToLogin()
 
     def switch_to_page_home(self):
         self.stackedWidget.setCurrentIndex(0)

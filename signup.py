@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QRegExp
+from PyQt5.QtCore import QRegExp, QSettings
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5.uic import loadUi
@@ -50,6 +50,16 @@ class SignUp(QDialog):
             session.add(new_user)
             session.commit()
 
+            # QSettings ile ilgili eklemeler
+            # Oturum bilgilerini QSettings ile sakla
+            from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+            settings = QSettings(APP_ORG_NAME, APP_NAME)
+            settings.setValue(SETTINGS_KEY + "/username", new_user.username)
+            settings.setValue(SETTINGS_KEY + "/email", new_user.email)
+
+            QMessageBox.information(self, "Success", "Successfully signed up!")
+            self.gotologin()
+
             from app import widget
             QMessageBox.information(self, "Success", "Successfully signed up!")
             from login import Login
@@ -57,9 +67,15 @@ class SignUp(QDialog):
             widget.addWidget(login)
             widget.setCurrentIndex(widget.currentIndex()+1)
 
+    #def gotologin(self):
+        #from login import Login
+        #from app import widget
+        #login=widget()
+        #widget.addWidget(login)
+        #widget.setCurrentIndex(widget.currentIndex()+1)
+
     def gotologin(self):
         from login import Login
-        from app import widget
-        login=widget()
-        widget.addWidget(login)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        login=Login()
+        self.widget.addWidget(login)
+        self.widget.setCurrentIndex(self.widget.currentIndex()+1)

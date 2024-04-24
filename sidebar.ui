@@ -1465,7 +1465,7 @@ QLabel:hover {
              <rect>
               <x>10</x>
               <y>200</y>
-              <width>162</width>
+              <width>182</width>
               <height>311</height>
              </rect>
             </property>
@@ -1499,6 +1499,11 @@ QLabel:hover {
                  <property name="text">
                   <string>Change Password</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="resource.qrc">
+                   <normaloff>:/icon_add/icons/update_icon.png</normaloff>
+                   <normalon>:/icon_add/icons/update_icon.png</normalon>:/icon_add/icons/update_icon.png</iconset>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -1520,6 +1525,11 @@ QLabel:hover {
               <widget class="QPushButton" name="pButton_logout">
                <property name="text">
                 <string>Logout</string>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/icons/logout_icon.png</normaloff>
+                 <normalon>:/icon/icons/logout_icon.png</normalon>:/icon/icons/logout_icon.png</iconset>
                </property>
               </widget>
              </item>
@@ -1695,7 +1705,7 @@ QPushButton:checked{
             </font>
            </property>
            <property name="text">
-            <string>SideBar</string>
+            <string>Todo List</string>
            </property>
           </widget>
          </item>

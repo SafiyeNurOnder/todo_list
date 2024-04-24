@@ -1,8 +1,9 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QRegExp
+from PyQt5.QtCore import QRegExp, QSettings
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5.uic import loadUi
+
 
 from models import session
 from models.user import User
@@ -27,6 +28,20 @@ class Login(QDialog):
     def loginfunction(self):
         email = self.lineEdit_email.text()
         password = self.lineEdit_password.text()
+
+        user = session.query(User).filter_by(email=email).first()
+        if user and user.password == password:
+
+            # QSettings ile ilgili eklemeler
+            # Oturum bilgilerini QSettings ile sakla
+            from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+            settings = QSettings(APP_ORG_NAME, APP_NAME)
+            settings.setValue(SETTINGS_KEY + "/username", user.username)
+            settings.setValue(SETTINGS_KEY + "/email", user.email)
+            QMessageBox.information(self, "Success", "Login successful!")
+            self.gotosidebar()
+        else:
+            QMessageBox.warning(self, "Warning", "Login Failed!")
 
         # email alanının doğruluğunu kontrol etme
         if not self.lineEdit_email.hasAcceptableInput():
