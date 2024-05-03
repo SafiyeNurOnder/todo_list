@@ -34,10 +34,10 @@ class Login(QDialog):
 
             # QSettings ile ilgili eklemeler
             # Oturum bilgilerini QSettings ile sakla
-            from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
-            settings = QSettings(APP_ORG_NAME, APP_NAME)
-            settings.setValue(SETTINGS_KEY + "/username", user.username)
-            settings.setValue(SETTINGS_KEY + "/email", user.email)
+            #from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+            #settings = QSettings(APP_ORG_NAME, APP_NAME)
+            #settings.setValue(SETTINGS_KEY + "/username", user.username)
+            #settings.setValue(SETTINGS_KEY + "/email", user.email)
             QMessageBox.information(self, "Success", "Login successful!")
             self.gotosidebar()
         else:

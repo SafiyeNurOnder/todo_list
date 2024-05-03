@@ -27,6 +27,7 @@ class TestSignUp(unittest.TestCase): # unittest.TestCase sınıfından türetilm
     def tearDown(self): # Her test metodu bittikten sonra çalışacak olan tearDown metodu. SignUp penceresini kapatır.
         self.window.close()
 
+
     @patch('signup.session.add')
     @patch('signup.session.commit')
     def test_signup_valid(self, mock_commit, mock_add): # signup modülünden session.add ve session.commit fonksiyonlarını mocklar. Gerçek veritabanına erişmeden test yapabilmek için.
@@ -85,7 +86,8 @@ class TestSignUp(unittest.TestCase): # unittest.TestCase sınıfından türetilm
         self.window.lineEdit_confirmpassword.setText("testpassword")
 
         self.window.signupfunction()
-        QTest.qWaitForWindowExposed(self.window)
+        QTest.qWait(1000) #1 sn bekle
+        #QTest.qWaitForWindowExposed(self.window) # pencerenin görünür hale gelmesini bekler
 
         # QMessageBox.information'ın çağrılıp çağrılmadığını ve doğru mesajla çağrıldığını kontrol etme
         mock_info.assert_called_with(self.window, "Success", "Successfully signed up!")

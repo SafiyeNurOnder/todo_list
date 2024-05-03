@@ -1,11 +1,88 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
+from PyQt5.QtCore import Qt
+from PyQt5.QtTest import QTest
+from PyQt5.QtWidgets import QMessageBox
+
+from login import Login
+
+
+class test_login(unittest.TestCase):
+
+    def setUp(self):
+        self.login = Login()
+
+    def test_valid_login(self):
+        #
+        with patch('login.session.query') as mock_query:
+            #
+            mock_user = MagicMock()
+            mock_user.email = 'valid_email@example.com'
+            mock_user.password = 'validpassword'
+            mock_query.return_value.filter_by.return_value.first.return_value = mock_user
+
+            self.login.lineEdit_email.setText('valid_email@example.com')
+            self.login.lineEdit_password.setText('validpassword')
+
+            QTest.mouseClick(self.login.pushButton_login, Qt.LeftButton)
+
+            self.assertEqual(self.login.gotosidebar.call_count, 1)
+            self.assertEqual(QMessageBox.information.call_count, 1)
+            self.assertEqual(QMessageBox.information.call_args[0][2], "Login successful!")
+
+        def test_invalid_email_login(self):
+
+            self.login.lineEdit_email.setText('invalid_email')
+            self.login.lineEdit_password.setText('validpassword')
+
+            QTest.mouseClick(self.login.pushButton_login, Qt.LeftButton)
+
+            self.assertEqual(QMessageBox.warning.call_count, 1)
+            self.assertEqual(QMessageBox.warning.call_args[0][2], "Invalid email format!")
+
+
+        def test_invalid_password_login(self):
+
+            self.login.lineEdit_email.setText('valid_email@example.com')
+            self.login.lineEdit_password.setText("pass")
+
+            QTest.mouseClick(self.login.pushButton_login, Qt.LeftButton)
+
+            self.assertEqual(QMessageBox.warning.call_count, 1)
+            self.assertEqual(QMessageBox.warning.call_args[0][2], "Invalid password format! Password must be at least 8 characters long.")
+
+        def test_wrong_credentials_login(self):
+
+            with patch('login.session.query') as mock_query:
+
+                mock_user = MagicMock()
+                mock_user.email = 'valid_email@example.com'
+                mock_user.password = 'validpassword'
+                mock_query.return_value.filter_by.return_value.first.return_value = mock_user
+
+                self.login.lineEdit_email.setText('valid_email@example.com')
+                self.login.lineEdit_password.setText("wrongpassword")
+
+                QTest.mouseClick(self.login.pushButton_login, Qt.LeftButton)
+
+                self.assertEqual(QMessageBox.warning.call_count, 1)
+                self.assertEqual(QMessageBox.warning.call_args[0][2], "Login Failed!")
+
+        if __name__ == '__main__':
+            unittest.main()
+
+
+
+
+"""
+import unittest
+from unittest.mock import patch, MagicMock
+
 from PyQt5.QtWidgets import QApplication
 from login import Login
 
 app = QApplication([])
-
 
 class TestLogin(unittest.TestCase):
 
@@ -15,7 +92,7 @@ class TestLogin(unittest.TestCase):
     def test_email_validation(self):
         # Geçersiz e-posta formatı
         self.login.lineEdit_email.setText("invalid_email") #!!!
-        self.assertFalse(self.login.lineEdit_email.hasAcceptableInput()) # assertX, testin başarılır olup olamdığını kontrol eder
+        self.assertFalse(self.login.lineEdit_email.hasAcceptableInput()) # assertX, testin başarılı olup olamdığını kontrol eder
 
         # Geçerli e-posta formatı
         self.login.lineEdit_email.setText("valid_email@example.com") #!!!
@@ -61,4 +138,4 @@ if __name__ == '__main__':
 
 # python -m unittest -v test_module.py
 
-# tearDown(): Her test metodu çalıştırıldıktan sonra çalıştırılan metoddur. Kullanılan nesnelerin veya verilerin temizlenmesi için kullanılır.
+# tearDown(): Her test metodu çalıştırıldıktan sonra çalıştırılan metoddur. Kullanılan nesnelerin veya verilerin temizlenmesi için kullanılır."""

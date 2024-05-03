@@ -52,10 +52,10 @@ class SignUp(QDialog):
 
             # QSettings ile ilgili eklemeler
             # Oturum bilgilerini QSettings ile sakla
-            from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
-            settings = QSettings(APP_ORG_NAME, APP_NAME)
-            settings.setValue(SETTINGS_KEY + "/username", new_user.username)
-            settings.setValue(SETTINGS_KEY + "/email", new_user.email)
+            #from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+            #settings = QSettings(APP_ORG_NAME, APP_NAME)
+            #settings.setValue(SETTINGS_KEY + "/username", new_user.username)
+            #settings.setValue(SETTINGS_KEY + "/email", new_user.email)
 
             QMessageBox.information(self, "Success", "Successfully signed up!")
             self.gotologin()
@@ -67,15 +67,29 @@ class SignUp(QDialog):
             widget.addWidget(login)
             widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def gotologin(self):
+        from app import widget
+        login=widget
+        widget.addWidget(login)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
     #def gotologin(self):
         #from login import Login
-        #from app import widget
-        #login=widget()
-        #widget.addWidget(login)
-        #widget.setCurrentIndex(widget.currentIndex()+1)
-
+        #login=Login()
+        #self.widget.addWidget(login)
+        #self.widget.setCurrentIndex(self.widget.currentIndex()+1)
+"""
     def gotologin(self):
         from login import Login
-        login=Login()
-        self.widget.addWidget(login)
-        self.widget.setCurrentIndex(self.widget.currentIndex()+1)
+        login = Login()
+
+        # Eğer widget bir QStackedWidget ise, addWidget ve setCurrentIndex metodlarını kullanabiliriz
+        if isinstance(self.parent(), QtWidgets.QStackedWidget):
+            stacked_widget = self.parent()
+            stacked_widget.addWidget(login)
+            stacked_widget.setCurrentIndex(stacked_widget.currentIndex() + 1)
+        else:
+            # Eğer widget bir QMainWindow veya başka bir widget ise, setCentralWidget metodunu kullanabiliriz
+            self.parent().setCentralWidget(login)
+            
+"""

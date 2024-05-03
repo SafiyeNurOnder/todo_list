@@ -1316,7 +1316,7 @@ QLabel:hover {
             <string>Settings</string>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>360</x>
@@ -1460,10 +1460,10 @@ QLabel:hover {
              <string>Profile Page</string>
             </property>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>10</x>
+              <x>0</x>
               <y>200</y>
               <width>182</width>
               <height>311</height>
@@ -1549,7 +1549,7 @@ QLabel:hover {
             <string>----------------------------------------------------------------------------------</string>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>240</x>
@@ -1848,6 +1848,9 @@ QPushButton:checked{
            <width>14</width>
            <height>14</height>
           </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

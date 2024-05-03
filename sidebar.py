@@ -12,6 +12,10 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle('SideBar Menu')
 
+        self.widget_icon_menu.hide()
+        self.stackedWidget.setCurrentIndex(0)
+        self.pushButton_home2.setChecked(True)
+
         # QSettings için anahtar ve uygulama adını ayarla
         # self.settings = QSettings("MySettings", "todoList")
 
@@ -39,19 +43,19 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_search.clicked.connect(self.search_page)
         self.pushButton_user.clicked.connect(self.profile_page)
 
-    def checkSessions(self): # QSettings ile ilgili eklemeler
+    #def checkSessions(self): # QSettings ile ilgili eklemeler
         # Oturum bilgilerini QSettings'den yükle
-        from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
-        settings = QSettings(APP_ORG_NAME, APP_NAME)
-        username = settings.value(SETTINGS_KEY + "/username")
-        email = settings.value(SETTINGS_KEY + "/email")
+        #from app import APP_ORG_NAME, APP_NAME, SETTINGS_KEY
+        #settings = QSettings(APP_ORG_NAME, APP_NAME)
+        #username = settings.value(SETTINGS_KEY + "/username")
+        #email = settings.value(SETTINGS_KEY + "/email")
 
-        if username and email:
+        #if username and email:
             # Oturum açık, sidebar işlevselliğini göster
-            self.showSidebarFunctionalities()
-        else:
+            #self.showSidebarFunctionalities()
+        #else:
             # Oturum açık değil, oturum açma sayfasına yönlendir
-            self.goToLogin()
+            #self.goToLogin()
 
     def switch_to_page_home(self):
         self.stackedWidget.setCurrentIndex(0)
