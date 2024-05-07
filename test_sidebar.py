@@ -70,6 +70,22 @@ class TestSideBarTaskFunctionality(unittest.TestCase):
 
     # Diğer görev işlevselliği testleri de benzer şekilde oluşturulabilir
 
+        def test_delete_task(self):
+            # Öncelikle veritabanına birkaç görev ekleyin
+            task1 = Task(id=1, name="Task 1")
+            task2 = Task(id=2, name="Task 2")
+            session.add(task1)
+            session.add(task2)
+            session.commit()
+
+            # Test işlevini çağırın
+            sidebar = self.sidebar()  # Burada 'YourClass' ve 'your_module' kendi kodunuz ve sınıfınızın adı olmalıdır.
+            sidebar.delete_task()
+
+            # Görevlerin doğru bir şekilde silindiğini doğrulayın
+            self.assertIsNone(session.query(Task).filter_by(id=1).first())
+            self.assertIsNone(session.query(Task).filter_by(id=2).first())
+
     def tearDown(self): # test sonunda temizlik işlemleri
         self.sidebar.close() # sidebar nesnesini kapat
         del self.sidebar # sidebar nesnesini silerek bellekten kaldırma
@@ -107,7 +123,7 @@ class TestSideBarProfilePage(unittest.TestCase):
 
         self.assertEqual(self.sidebar.lEdit_username.text(), 'testuser') #kullanıcı ad alanını kontrol ediyoruz
         self.assertEqual(self.sidebar.lEdit_email.text(), 'test@example.com') #kullanıcı email alanı kontrolü
-        self.assertEqual(self.sidebar.lEdit_email.text(), 'testpass')  # Bu satırı düzeltebilirsiniz
+        self.assertEqual(self.sidebar.lEdit_password.text(), 'testpass')  # Bu satırı düzeltebilirsiniz
 
     def tearDown(self):
         self.sidebar.close()

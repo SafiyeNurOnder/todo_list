@@ -25,7 +25,18 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">body {
+    background-image: url(:/icon/icons/background.jpeg);
+    background-size: cover; /* veya contain */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Sayfayı kaydırırken arka planın sabit kalmasını sağlar, isteğe bağlı */
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
@@ -451,35 +462,15 @@ QPushButton:pressed {
 }</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_home">
-          <widget class="QLabel" name="label_4">
-           <property name="geometry">
-            <rect>
-             <x>460</x>
-             <y>10</y>
-             <width>161</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>-1</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Home Page</string>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_8">
            <property name="geometry">
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>421</width>
+             <width>681</width>
              <height>81</height>
             </rect>
            </property>
@@ -502,7 +493,7 @@ font: 11pt;</string>
             <rect>
              <x>30</x>
              <y>120</y>
-             <width>641</width>
+             <width>651</width>
              <height>401</height>
             </rect>
            </property>
@@ -528,17 +519,17 @@ QCalendarWidget QTableView {
            <widget class="QListWidget" name="listWidget">
             <property name="geometry">
              <rect>
-              <x>350</x>
+              <x>370</x>
               <y>80</y>
               <width>261</width>
               <height>231</height>
              </rect>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_savechanges">
+           <widget class="QPushButton" name="pushButton_deletetask_2">
             <property name="geometry">
              <rect>
-              <x>350</x>
+              <x>370</x>
               <y>330</y>
               <width>261</width>
               <height>41</height>
@@ -548,18 +539,18 @@ QCalendarWidget QTableView {
              <string notr="true"/>
             </property>
             <property name="text">
-             <string>Save Changes</string>
+             <string>Delete Task</string>
             </property>
             <property name="icon">
              <iconset resource="resource.qrc">
-              <normaloff>:/icon_add/icons/save_icon.png</normaloff>
-              <normalon>:/icon_add/icons/save_icon.png</normalon>:/icon_add/icons/save_icon.png</iconset>
+              <normaloff>:/icon_add/icons/delete_icon.png</normaloff>
+              <normalon>:/icon_add/icons/delete_icon.png</normalon>:/icon_add/icons/delete_icon.png</iconset>
             </property>
            </widget>
            <widget class="QPushButton" name="pushButton_addnew">
             <property name="geometry">
              <rect>
-              <x>510</x>
+              <x>530</x>
               <y>20</y>
               <width>101</width>
               <height>41</height>
@@ -580,7 +571,7 @@ QCalendarWidget QTableView {
            <widget class="QComboBox" name="comboBox_addnewtask">
             <property name="geometry">
              <rect>
-              <x>350</x>
+              <x>370</x>
               <y>30</y>
               <width>151</width>
               <height>30</height>
@@ -1041,7 +1032,7 @@ QLabel:hover {
             <rect>
              <x>260</x>
              <y>30</y>
-             <width>461</width>
+             <width>451</width>
              <height>42</height>
             </rect>
            </property>
@@ -1195,7 +1186,7 @@ QLabel:hover {
             <rect>
              <x>0</x>
              <y>490</y>
-             <width>721</width>
+             <width>711</width>
              <height>40</height>
             </rect>
            </property>
@@ -1276,7 +1267,7 @@ QLabel:hover {
             <rect>
              <x>260</x>
              <y>90</y>
-             <width>461</width>
+             <width>451</width>
              <height>341</height>
             </rect>
            </property>

@@ -1,10 +1,10 @@
 from PyQt5.QtCore import QSettings
 
-from models import session
+from models import session, user
 from models.task import Task
+from models.user import User
 from sidebar_ui import Ui_MainWindow
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QListWidget, QVBoxLayout
-
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QListWidget, QVBoxLayout, QListWidgetItem
 
 class SideBar(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -41,7 +41,15 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.pushButton_listtask.clicked.connect(self.load_task)
         self.comboBox_kglistele.currentIndexChanged.connect(self.load_tasks_by_category)
         self.pushButton_search.clicked.connect(self.search_page)
-        self.pushButton_user.clicked.connect(self.profile_page)
+        self.pButton_details.clicked.connect(self.profile_details)
+        self.pushButton_deletetask_2.clicked.connect(self.delete_task2)
+        self.pButton_logout.clicked.connect(self.close_and_open_homepage)
+
+        self.pushButton_home2.clicked.connect(self.home_page)
+        self.pushButton_addnew.clicked.connect(self.add_task_to_list)
+        self.pButton_changepassword.clicked.connect(self.change_password)
+
+        #self.pButton_details.clicked.connect(self.load_user)
 
     #def checkSessions(self): # QSettings ile ilgili eklemeler
         # Oturum bilgilerini QSettings'den yükle
@@ -196,7 +204,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
                 else:
                     QMessageBox.warning(self, "Warning", "No changes detected!")
 
-
     def load_task(self):
         QMessageBox.warning(self, "Warning", "LoadTask Test")
 
@@ -275,9 +282,96 @@ class SideBar(QMainWindow, Ui_MainWindow):
         else:
             QMessageBox.warning(self, "Warning", "No matching page found!")
 
-    def profile_page(self):
-        QMessageBox.warning(self, "Test", "Test Profile")
+    def profile_details(self, item):
+        if item is not None:
+            QMessageBox.warning(self, "Test", "Test Details")
 
-        self.lEdit_username.setText(self.user_data['username'])
-        self.lEdit_email.setText(self.user_data['email'])
-        self.lEdit_email.setText(self.user_data['password'])
+            # Veritabanından seçilen kullanıcıyı getir
+            user = session.query(User).filter_by(id=2).first()
+            if user:
+                # Kullanıcı bilgilerini LineEdit widget'larına yükle
+                self.lEdit_username.setText(user.username)
+                self.lEdit_username.setReadOnly(True)
+                self.lEdit_email.setText(user.email)
+                self.lEdit_email.setReadOnly(True)
+                self.lEdit_password.setPlaceholderText(user.password) # bu şekilde arka planda görünmeye devam ediyor yeni bir metin girilebilir durumda
+
+    def change_password(self):
+        user = session.query(User).filter_by(id=2).first()
+        if user:
+            # Görevin mevcut bilgilerini al
+            current_password = user.password
+
+            # Yeni bilgileri LineEdit ve ComboBox widget'larından al
+            new_password = self.lEdit_password.text()
+
+            # Değişiklik kontrolü yap
+            if (new_password != current_password):
+
+                # Değişiklik varsa güncelle
+                user.password = new_password
+
+                session.commit()
+
+                QMessageBox.information(self, "Information", "Password updated successfully!")
+            else:
+                QMessageBox.warning(self, "Warning", "No changes detected!")
+        else:
+            QMessageBox.warning(self, "Warning", "Please enter a new password!")
+
+    #def profile_page(self, username):
+        # Kullanıcı adına göre veritabanından kullanıcıyı getir
+        #user = session.query(User).filter_by(username=username).first()
+        #if user:
+            # Kullanıcı bilgilerini LineEdit widget'larına yükle
+            #self.lEdit_username.setText(user.username)
+            #self.lEdit_email.setText(user.email)
+            #self.lEdit_password.setText(user.password)
+        #else:
+            #QMessageBox.warning(self, "Warning", "User not found")
+
+    def close_and_open_homepage(self):
+        self.close()  # Sayfayı kapat
+
+    def home_page(self):
+        # ComboBox zaten doluysa tekrar yükleme
+        if self.comboBox_addnewtask.count() > 0:
+            return
+
+        # Veritabanından tüm görev başlıklarını çek
+        tasks = session.query(Task.title).all()
+
+        # Görev başlıklarını ComboBox'a ekleyin
+        for task in tasks:
+            self.comboBox_addnewtask.addItem(task.title)
+
+    def delete_task2(self):
+        # Seçilen görevin bilgilerini al
+        selected_item = self.listWidget.currentItem()
+        if selected_item:
+            # Seçilen öğenin sadece text bilgisini al
+            task_info = selected_item.text()
+            task_id = task_info.split(':')[1].split('-')[0].strip()
+
+            # Seçilen öğenin text bilgisini list widget'tan kaldır
+            self.listWidget.takeItem(self.listWidget.currentRow())
+
+            # List widget'ın görünümünü güncelle
+            self.listWidget.update()  # veya .repaint()
+
+    def add_task_to_list(self):
+        # Seçilen görevi al
+        selected_task = self.comboBox_addnewtask.currentText()
+
+        # Seçilen tarihi al
+        selected_date = self.calendarWidget.selectedDate().toString("yyyy-MM-dd")
+
+        # Görev ve tarih bilgisini birleştir
+        task_info = f"Task: {selected_task} - Due Date: {selected_date}"
+
+        # Liste öğesi oluştur ve görev bilgisi ile ayarla
+        item = QListWidgetItem()
+        item.setText(task_info)
+
+        # ListeWidget'a öğeyi ekle
+        self.listWidget.addItem(item)

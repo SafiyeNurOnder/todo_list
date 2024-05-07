@@ -53,27 +53,6 @@ class Login(QDialog):
             QMessageBox.warning(self, "Warning", "Invalid password format! Password must be at least 8 characters long.")
             return
 
-        # kullanıcıyı veritabanında sorgulama - READ
-        user = session.query(User).filter_by(email=email).first()
-
-        # bu kısım olunca if bloğu çalıştı. (şifre db'de byte dizisi olarak saklanıyor. kullanıcın girdiği şifre ile doğrudan karşılaştırılamaz)
-        print(f"Email: {email}")
-        print(f"User from DB: {user}")
-        if user:
-            print(f"User ID: {user.id}")
-            print(f"User Email: {user.email}")
-            print(f"User Password: {user.password}")
-
-        # Şifreleri byte dizisine dönüştürme
-        password_bytes = password.encode('utf-8')
-
-        if user and user.password == password_bytes:
-            QMessageBox.information(self, "Success", "Login successful!")
-            self.gotosidebar()
-        else:
-            QMessageBox.warning(self, "Warning", "Login Failed!")
-
-
     def gotosignup(self):
         from signup import SignUp
         signup = SignUp()

@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icons/bg_image</file>
+    <file>icons/background.jpeg</file>
     <file>icons/accountdetails_icon.png</file>
     <file>icons/logout_icon.png</file>
     <file>icons/dashboard_iconb.png</file>
