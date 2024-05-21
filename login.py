@@ -4,10 +4,8 @@ from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5.uic import loadUi
 
-
 from models import session
 from models.user import User
-
 
 class Login(QDialog):
     def __init__(self):

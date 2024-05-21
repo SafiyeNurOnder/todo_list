@@ -84,7 +84,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(5)
 
     def add_task(self):
-        QMessageBox.warning(self, "Warning", "AddTask Test")
 
         id = self.lineEdit_id.text().strip()
         title = self.lineEdit_tasktitle.text().strip()
@@ -101,7 +100,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
         print(
             f"ID: {id}, Title: {title}, Description: {description}, Due Date: {due_date}, Completed: {completed}, User ID: {user_id}, Categories: {categories}, Priority: {priority}")
 
-        if not (id.strip() and title.strip() and description.strip() and due_date.strip() and completed is not None and user_id.strip() and categories.strip() and priority.strip()):
+        if not (title.strip() and description.strip() and due_date.strip() and completed is not None and user_id.strip() and categories.strip() and priority.strip()):
             QMessageBox.warning(self, "Warning", "Relevant fields cannot be empty!")
             return
 
@@ -128,7 +127,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.comboBox_priority.setCurrentIndex(-1)
 
     def delete_task(self):
-        QMessageBox.warning(self, "Warning", "DeleteTask Test")
 
         # Seçilen görevin bilgilerini al
         selected_item = self.listWidget_task.currentItem()
@@ -139,15 +137,15 @@ class SideBar(QMainWindow, Ui_MainWindow):
             # Veritabanından görevi sil
             task = session.query(Task).filter_by(id=task_id).first()
             if task:
-                session.delete(task)
-                session.commit()
+                if task.description is not None:
+                    session.delete(task)
+                    session.commit()
 
                 # ListWidget'tan seçilen öğeyi kaldır
                 self.listWidget_task.takeItem(self.listWidget_task.currentRow())
                 QMessageBox.information(self, "Information", "Task deleted successfully!")
 
     def update_task(self):
-        QMessageBox.warning(self, "Warning", "UpdateTask Test")
 
         # Seçilen görevin bilgilerini al
         selected_item = self.listWidget_task.currentItem()
@@ -205,7 +203,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
                     QMessageBox.warning(self, "Warning", "No changes detected!")
 
     def load_task(self):
-        QMessageBox.warning(self, "Warning", "LoadTask Test")
 
         # Mevcut görevleri temizle
         self.listWidget_task.clear()
@@ -244,7 +241,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
             self.comboBox_priority.setCurrentText(str(task.priority))
 
     def load_tasks_by_category(self):
-        QMessageBox.warning(self, "Warning", "Load Tasks by Category Test")
 
         # Mevcut görevleri temizle
         self.listWidget_task.clear()
@@ -284,7 +280,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
     def profile_details(self, item):
         if item is not None:
-            QMessageBox.warning(self, "Test", "Test Details")
 
             # Veritabanından seçilen kullanıcıyı getir
             user = session.query(User).filter_by(id=2).first()

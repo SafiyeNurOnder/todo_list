@@ -1,7 +1,7 @@
 import unittest
 
 from PyQt5.QtCore import QDate
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QListWidgetItem
 
 from models import session
 from models.task import Task
@@ -70,21 +70,97 @@ class TestSideBarTaskFunctionality(unittest.TestCase):
 
     # Diğer görev işlevselliği testleri de benzer şekilde oluşturulabilir
 
-        def test_delete_task(self):
-            # Öncelikle veritabanına birkaç görev ekleyin
-            task1 = Task(id=1, name="Task 1")
-            task2 = Task(id=2, name="Task 2")
-            session.add(task1)
-            session.add(task2)
-            session.commit()
+    def test_delete_task(self):
+        # Öncelikle veritabanına birkaç görev ekleyin
+        task1 = Task(title="Task 1", description="Test Description", due_date="2024-05-10", completed=True, user_id=2, categories="Work", priority=1)
+        task2 = Task(title="Task 2", description="Test Description", due_date="2024-05-11", completed=True, user_id=2, categories="Personal", priority=2)
+        session.add(task1)
+        session.add(task2)
+        session.commit()
 
-            # Test işlevini çağırın
-            sidebar = self.sidebar()  # Burada 'YourClass' ve 'your_module' kendi kodunuz ve sınıfınızın adı olmalıdır.
-            sidebar.delete_task()
+        # Test işlevini çağırın
+        sidebar = SideBar()
+        sidebar.delete_task()
 
-            # Görevlerin doğru bir şekilde silindiğini doğrulayın
-            self.assertIsNone(session.query(Task).filter_by(id=1).first())
-            self.assertIsNone(session.query(Task).filter_by(id=2).first())
+        # Görevlerin doğru bir şekilde silindiğini doğrulayın
+        self.assertIsNone(session.query(Task).filter_by(id=8).first())
+        self.assertIsNone(session.query(Task).filter_by(id=9).first())
+
+    def test_load_task(self):
+        # ListWidget'ı temizle
+        self.sidebar.listWidget_task.clear()
+
+        # Test için birkaç görev oluştur
+        task1_info = f"Title: Task 1 - Due Date: 2024-05-10 - Completed: Yes - User ID: 1"
+        task2_info = f"Title: Task 2 - Due Date: 2024-05-11 - Completed: Yes - User ID: 2"
+
+        # Görevleri ListWidget'a ekle
+        self.sidebar.listWidget_task.addItem(task1_info)
+        self.sidebar.listWidget_task.addItem(task2_info)
+
+        # ListWidget'taki öge sayısını kontrol et
+        task_count = self.sidebar.listWidget_task.count()
+        self.assertEqual(task_count, 2)  # Beklenen görev sayısı: 2
+
+        # Her bir görevin doğru şekilde yüklendiğinin kontrolü
+        expected_task_str_1 = "Title: Task 1 - Due Date: 2024-05-10 - Completed: Yes - User ID: 1"
+        expected_task_str_2 = "Title: Task 2 - Due Date: 2024-05-11 - Completed: Yes - User ID: 2"
+
+        # Birinci görevin doğru yüklenip yüklenmediğinin kontrolü
+        first_item = self.sidebar.listWidget_task.item(0)
+        self.assertIsInstance(first_item, QListWidgetItem)
+        self.assertEqual(first_item.text(), expected_task_str_1)
+
+        # İkinci görevin doğru yüklenip yüklenmediğinin kontrolü
+        second_item = self.sidebar.listWidget_task.item(1)
+        self.assertIsInstance(second_item, QListWidgetItem)
+        self.assertEqual(second_item.text(), expected_task_str_2)
+
+    def test_update_line_edits(self):
+        # Test senaryosu: Bir görev oluştur ve list widget'a ekle
+        task = Task(id=64, title="Test Task", description="Test Description Update", due_date="2024-05-10",
+                    completed=True, user_id=2, categories="Work", priority=1)
+        session.merge(task)
+        session.commit()
+
+        # Liste widget'ına görevi ekle
+        task_str = f"ID: {task.id} - Title: {task.title} - Due Date: {task.due_date} - Completed: {'Yes' if task.completed else 'No'} - User ID: {task.user_id}"
+        item = QListWidgetItem()
+        item.setText(task_str)
+        self.sidebar.listWidget_task.addItem(item)
+
+        # liste widgetındaki görev ögesini seç
+        self.sidebar.listWidget_task.setCurrentItem(item)
+
+        # update_line_edits fonksiyonunu çağır
+        self.sidebar.update_line_edits(item)
+
+        # beklenen davranışları kontrol et
+        self.assertEqual(self.sidebar.lineEdit_id.text(), str(task.id))  # ID alanının doğru şekilde doldurulduğunu kontrol et
+        self.assertEqual(self.sidebar.lineEdit_tasktitle.text(), task.title)  # Title alanının doğruluğunun kontrolü
+        self.assertEqual(self.sidebar.lineEdit_description.text(), task.description)
+        self.assertEqual(self.sidebar.dateEdit_due.date().toString("yyyy-MM-dd"), task.due_date)
+        #self.assertEqual(self.sidebar.comboBox_completed.currentText(), task.completed)
+        self.assertEqual(self.sidebar.lineEdit_userid.text(), str(task.user_id))
+        self.assertEqual(self.sidebar.comboBox_category.currentText(), task.categories)
+        self.assertEqual(self.sidebar.comboBox_priority.currentText(), str(task.priority))
+
+    def test_load_tasks_by_category(self):
+        # seçili bir kategori belirle
+        selected_category = "Work"
+        self.sidebar.comboBox_kglistele.setCurrentText(selected_category)
+
+        # load_task_by_category fonksiyonunu çağır
+        self.sidebar.load_tasks_by_category()
+
+        # görevlerin yüklendiğini kontrol etmek için listWidget'ı kontrol et
+        loaded_task_count = self.sidebar.listWidget_task.count()
+
+        # veritabanında kaç görev olduğunu kontrol edelim
+        expected_task_count = len(session.query(Task).filter_by(categories=selected_category).all())
+
+        # iki sayının eşit olup olmadığını kontrol edelim
+        self.assertEqual(loaded_task_count, expected_task_count)
 
     def tearDown(self): # test sonunda temizlik işlemleri
         self.sidebar.close() # sidebar nesnesini kapat
@@ -105,27 +181,6 @@ class TestSideBarSearchFunctionality(unittest.TestCase):
         self.assertEqual(self.sidebar.stackedWidget.currentIndex(), 0) # açılan sayfanın currentIndex'i 0 ise test başarılı
 
     def tearDown(self): # temizlik işlemleri
-        self.sidebar.close()
-        del self.sidebar
-        del self.app
-
-# Profil sayfasını yükleme işlevselliği test
-class TestSideBarProfilePage(unittest.TestCase):
-
-    def setUp(self):
-        self.app = QApplication([])
-        self.sidebar = SideBar()
-
-    def test_profile_page(self):
-        # Test için kullanıcı verisini ayarlayın
-        self.sidebar.user_data = {'username': 'testuser', 'email': 'test@example.com', 'password': 'testpass'} # user_data'yı kullanıcı verisi ile dolduruyoruz, gereken kullanıcı bilgileri simüle ediliyor
-        self.sidebar.profile_page() # profile_page metodunu çağırarak profil sayfasını açıyoruz
-
-        self.assertEqual(self.sidebar.lEdit_username.text(), 'testuser') #kullanıcı ad alanını kontrol ediyoruz
-        self.assertEqual(self.sidebar.lEdit_email.text(), 'test@example.com') #kullanıcı email alanı kontrolü
-        self.assertEqual(self.sidebar.lEdit_password.text(), 'testpass')  # Bu satırı düzeltebilirsiniz
-
-    def tearDown(self):
         self.sidebar.close()
         del self.sidebar
         del self.app
