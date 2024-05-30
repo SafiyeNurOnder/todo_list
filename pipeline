@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Install Python3-venv') {
+            steps {
+                // `python3-venv` paketini yükle
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install -y python3-venv'
+            }
+        }
+
+    stages {
         stage('Clone Repository') {
             steps {
                 // Kod deposunu klonla

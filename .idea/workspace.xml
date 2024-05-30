@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/pipeline" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_sidebar.py" afterDir="false" />
-    </list>
+    <list default="true" id="fb75e52e-6ffc-4b05-9c25-388c7bdea972" name="Changes" comment="pippeline" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,7 +216,7 @@
       <workItem from="1716358576947" duration="3231000" />
       <workItem from="1716804925875" duration="6211000" />
       <workItem from="1716881121556" duration="39648000" />
-      <workItem from="1717071272439" duration="599000" />
+      <workItem from="1717071272439" duration="1478000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <option name="closed" value="true" />
@@ -411,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716293413054</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="pippeline">
+      <option name="closed" value="true" />
+      <created>1717071985104</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1717071985104</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +434,8 @@
     <MESSAGE value="add, delete, update, list" />
     <MESSAGE value="search" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="pippeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="pippeline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
