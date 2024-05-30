@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
+import xmlrunner
 from PyQt5.QtCore import Qt
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QMessageBox
@@ -69,8 +70,12 @@ class test_login(unittest.TestCase):
                 self.assertEqual(QMessageBox.warning.call_count, 1)
                 self.assertEqual(QMessageBox.warning.call_args[0][2], "Login Failed!")
 
-        if __name__ == '__main__':
-            unittest.main()
+        #if __name__ == '__main__':
+            #unittest.main()
+
+    if __name__ == '__main__':
+        with open('tests/reports/results.xml', 'w') as output:
+            unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output))
 
 
 

@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 
 from models import Base
 
+
 class User(Base):
     __tablename__ = 'users'
 
@@ -14,4 +15,3 @@ class User(Base):
 
     # kullanıcı ile ilişki kurmak için relationship tanımlanabilir
     tasks = relationship("Task", back_populates="user")
-

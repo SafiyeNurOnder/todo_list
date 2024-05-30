@@ -135,12 +135,22 @@ class TestSideBarTaskFunctionality(unittest.TestCase):
         # update_line_edits fonksiyonunu çağır
         self.sidebar.update_line_edits(item)
 
+        self.sidebar.comboBox_completed.clear()
+        self.sidebar.comboBox_completed.addItem("True")
+        self.sidebar.comboBox_completed.addItem("False")
+        self.sidebar.comboBox_category.clear()
+        self.sidebar.comboBox_category.addItem("Work")
+        self.sidebar.comboBox_category.addItem("Personal")
+        self.sidebar.comboBox_priority.clear()
+        self.sidebar.comboBox_priority.addItem("1")
+        self.sidebar.comboBox_priority.addItem("2")
+
         # beklenen davranışları kontrol et
         self.assertEqual(self.sidebar.lineEdit_id.text(), str(task.id))  # ID alanının doğru şekilde doldurulduğunu kontrol et
         self.assertEqual(self.sidebar.lineEdit_tasktitle.text(), task.title)  # Title alanının doğruluğunun kontrolü
         self.assertEqual(self.sidebar.lineEdit_description.text(), task.description)
         self.assertEqual(self.sidebar.dateEdit_due.date().toString("yyyy-MM-dd"), task.due_date)
-        #self.assertEqual(self.sidebar.comboBox_completed.currentText(), task.completed)
+        self.assertEqual(self.sidebar.comboBox_completed.currentText(), "True" if task.completed else "False")
         self.assertEqual(self.sidebar.lineEdit_userid.text(), str(task.user_id))
         self.assertEqual(self.sidebar.comboBox_category.currentText(), task.categories)
         self.assertEqual(self.sidebar.comboBox_priority.currentText(), str(task.priority))
