@@ -14,7 +14,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Kod deposunu klonla
-                git 'https://github.com/SafiyeNurOnder/todo_list/tree/master'
+                git 'https://github.com/SafiyeNurOnder/todo_list'
             }
         }
 
