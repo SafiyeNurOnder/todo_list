@@ -1,6 +1,41 @@
 pipeline {
     agent any
 
+    environment {
+
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/SafiyeNurOnder/todo_list'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'python -m unittest discover -s tests'
+            }
+        }
+    }
+
+    post {
+        always {
+            junit 'tests/reports/*.xml'
+        }
+    }
+}
+
+"""
+pipeline {
+    agent any
+
     stages {
         stage('Install Python3-venv') {
             steps {
@@ -42,3 +77,4 @@ pipeline {
         }
     }
 }
+"""

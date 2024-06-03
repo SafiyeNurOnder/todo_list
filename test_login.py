@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-import xmlrunner
+#import xmlrunner
 from PyQt5.QtCore import Qt
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QMessageBox
@@ -73,9 +73,9 @@ class test_login(unittest.TestCase):
         #if __name__ == '__main__':
             #unittest.main ()
 
-    if __name__ == '__main__':
-        with open('tests/reports/results.xml', 'w') as output:
-            unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output))
+    #if __name__ == '__main__':
+        #with open('tests/reports/results.xml', 'w') as output:
+            #unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output))
 
 
 # unittest.main() fonksiyonu ile testleri komut satırından çalıştırabiliriz. Ek argümanlar da kullanılabilir.

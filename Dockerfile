@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM python:3.10-slim
 
 LABEL maintainer="Safiye Nur Onder safiyenuronder@gmail.com"
 
@@ -38,7 +38,7 @@ ENV MYSQL_HOST=localhost
 ENV MYSQL_DATABASE=todoList
 ENV QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
 ENV XDG_RUNTIME_DIR=/tmp/runtime-root
-ENV LD_LIBRARY_PATH=/home/safiyenur/PycharmProjects/flask-hello-world-devops-project/.venv/lib/python3.10/site-packages/PyQt5/Qt5/lib/
+#ENV LD_LIBRARY_PATH=/home/safiyenur/PycharmProjects/flask-hello-world-devops-project/.venv/lib/python3.10/site-packages/PyQt5/Qt5/lib/
 
 # Gerekli dizini oluştur
 RUN mkdir -p /tmp/runtime-root && chmod 0700 /tmp/runtime-root
