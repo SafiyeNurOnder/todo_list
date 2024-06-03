@@ -2,25 +2,32 @@ pipeline {
     agent any
 
     environment {
-
+        REPO_URL = 'https://github.com/SafiyeNurOnder/todo_list'
+        APP_NAME = 'mytodolistapp'
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/SafiyeNurOnder/todo_list'
+                git branch: 'master', url: "${  REPO_URL}"
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build Docker Image') {
             steps {
-                sh 'pip install -r requirements.txt'
+                script {
+                def customImage = docker.build("${APP_NAME}:latest")
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'python -m unittest discover -s tests'
+                script {
+                    docker.image("${APP_NAME}:latest").inside {
+                        sh 'python -m unittest discover -s tests'
+                    }
+                }
             }
         }
     }
