@@ -13,26 +13,11 @@ pipeline {
             }
         }
 
-        stage ('Install Dependencies') {
-            steps {
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y python3-venv xvfb'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
                 def customImage = docker.build("${APP_NAME}:latest")
                 }
-            }
-        }
-
-        stage ('Setup Virtual Environment') {
-            steps {
-                sh 'python3 -m venv venv'
-                sh './venv/bin/pip install -r requirements.txt'
-                sh './venv/bin/pip install PyQt5 xmlrunner'
             }
         }
 
