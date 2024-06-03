@@ -13,6 +13,13 @@ pipeline {
             }
         }
 
+        stage ('Install Dependencies') {
+            steps {
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install -y python3-venv xvfb'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -21,11 +28,21 @@ pipeline {
             }
         }
 
+        stage ('Setup Virtual Environment') {
+            steps {
+                sh 'python3 -m venv venv'
+                sh './venv/bin/pip install -r requirements.txt'
+                sh './venv/bin/pip install PyQt5 xmlrunner'
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
                     docker.image("${APP_NAME}:latest").inside {
-                        sh 'python -m unittest discover -s tests'
+                        sh 'Xvfb :99 &'
+                        sh 'export DISPLAY=:99'
+                        sh './venv/bin/python -m unittest discover -s tests'
                     }
                 }
             }

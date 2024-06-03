@@ -6,9 +6,15 @@ from PyQt5.QtWidgets import QApplication, QListWidgetItem
 from models import session
 from models.task import Task
 from sidebar import SideBar
+from test_helpers import setup_qt_environment
+
 
 # Sayfalar arasında geçiş işlevselliği
 class TestSideBarPageSwitching(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.app = setup_qt_environment()
 
     def setUp(self):
         self.app = QApplication([])

@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     libqt5gui5 \
     libqt5widgets5 \
     libqt5svg5-dev \
-    libqt5svg5
+    libqt5svg5 \
+    xvfb
 
 # PyQt5'in belirli bir sürümünü yükle
 RUN pip3 install PyQt5==5.15.2
@@ -42,6 +43,11 @@ ENV XDG_RUNTIME_DIR=/tmp/runtime-root
 
 # Gerekli dizini oluştur
 RUN mkdir -p /tmp/runtime-root && chmod 0700 /tmp/runtime-root
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Uygulamayı çalıştır
 CMD ["python3", "app.py"]
