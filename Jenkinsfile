@@ -13,14 +13,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                def customImage = docker.build("${APP_NAME}:latest")
-                }
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 script {
@@ -29,6 +21,14 @@ pipeline {
                         sh 'export DISPLAY=:99'
                         sh './venv/bin/python -m unittest discover -s tests'
                     }
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                def customImage = docker.build("${APP_NAME}:latest")
                 }
             }
         }
