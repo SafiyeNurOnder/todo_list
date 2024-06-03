@@ -5,15 +5,15 @@ from PyQt5.QtTest import QTest
 from signup import SignUp
 from models.user import User
 from models import session
-from test_helpers import setup_qt_environment
+#from test_helpers import setup_qt_environment
 
 app = QApplication([]) # Yeni bir QApplication örneği oluşturur.
 
 class TestSignUp(unittest.TestCase): # unittest.TestCase sınıfından türetilmiş bir test sınıfıdır.
 
-    @classmethod
-    def setUpClass(cls):
-        cls.app = setup_qt_environment()
+    #@classmethod
+    #def setUpClass(cls):
+        #cls.app = setup_qt_environment()
 
     @classmethod # Sınıf seviyesinde bir setUp metodu. QApplication örneğini oluşturur veya mevcut bir örneği alır.
     def setUpClass(cls):

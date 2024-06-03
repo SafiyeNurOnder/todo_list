@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y \
     libqt5gui5 \
     libqt5widgets5 \
     libqt5svg5-dev \
-    libqt5svg5 \
-    xvfb
+    libqt5svg5
+    #xvfb
 
 # PyQt5'in belirli bir sürümünü yükle
 RUN pip3 install PyQt5==5.15.2
