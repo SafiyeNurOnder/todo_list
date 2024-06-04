@@ -2,33 +2,29 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/SafiyeNurOnder/todo_list'
-        APP_NAME = 'mytodolistapp'
+        DOCKER_IMAGE = 'safiyenuronder/mytodolistapp:latest'  // Docker Hub'daki imajınızın ismi ve etiketi
+        DISPLAY = ':99'  // Xvfb için kullanılacak ekran numarası
     }
 
     stages {
-        stage('Checkout') {
+        stage('Pull Docker Image') {
             steps {
-                git branch: 'master', url: "${REPO_URL}"
+                script {
+                    sh "docker pull ${DOCKER_IMAGE}"
+                }
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Setup Xvfb') {
             steps {
-                script {
-                def customImage = docker.build("${APP_NAME}:latest")
-                }
+                sh 'Xvfb :99 -screen 0 1024x768x24 &'
             }
         }
 
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image("${APP_NAME}:latest").inside {
-                        sh 'Xvfb :99 &'
-                        sh 'export DISPLAY=:99'
-                        sh './venv/bin/python -m unittest discover -s tests'
-                    }
+                    sh "docker run -e DISPLAY=${DISPLAY} -v \$(pwd):/app -w /app ${DOCKER_IMAGE} python -m unittest discover -s tests"
                 }
             }
         }
@@ -40,50 +36,3 @@ pipeline {
         }
     }
 }
-
-"""
-pipeline {
-    agent any
-
-    stages {
-        stage('Install Python3-venv') {
-            steps {
-                // `python3-venv` paketini yükle
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y python3-venv'
-            }
-        }
-
-    stages {
-        stage('Clone Repository') {
-            steps {
-                // Kod deposunu klonla
-                git 'https://github.com/SafiyeNurOnder/todo_list'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                // Python ortamını kur ve gereksinimleri yükle
-                sh 'python3 -m venv venv'
-                sh './venv/bin/pip install -r requirements.txt'
-                sh './venv/bin/pip install PyQt5 xmlrunner'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                // Testleri çalıştır
-                sh './venv/bin/python -m unittest discover -s tests'
-            }
-        }
-    }
-
-    post {
-        always {
-            // Test sonuçlarını raporla
-            junit 'tests/reports/*.xml'
-        }
-    }
-}
-"""
