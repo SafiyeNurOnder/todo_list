@@ -7,14 +7,9 @@ from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QMessageBox
 
 from login import Login
-#from test_helpers import setup_qt_environment
 
 
 class test_login(unittest.TestCase):
-
-    #@classmethod
-    #def setUpClass(cls):
-        #cls.app = setup_qt_environment()
 
     def setUp(self):
         self.login = Login()
