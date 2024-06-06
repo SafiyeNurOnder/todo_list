@@ -82,15 +82,12 @@ pipeline {
                 sh './venv/bin/pip install unittest-xml-reporting'
             }
         }
-
         stage('Run Tests') {
             steps {
-                RUN echo '#!/bin/bash\n\
-                Xvfb :99 -screen 0 1024x768x24 &\n\
-                x11vnc -display :99 -nopw -forever -shared &\n\
-                    python3 app.py' > /app/start.sh && chmod +x /app/start.sh
-
-
+               sh
+                sh 'Xvfb :99 -screen 0 1024x768x24'
+                sh 'x11vnc -display :99 -nopw -forever -shared'
+                sh 'python3 app.py> /app/start.sh && chmod +x /app/start.sh'
             }
         }
     }
