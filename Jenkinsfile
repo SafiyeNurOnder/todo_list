@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Install xvfb') {
+            steps {
+                sh 'sudo apt-get update && sudo apt-get install -y xvfb'
+            }
+        }
+
         stage('Setup Python Environment') {
             steps {
                 sh 'python -m venv venv'
@@ -19,12 +25,6 @@ pipeline {
             steps {
                 sh './venv/bin/pip install -r requirements.txt'
                 sh './venv/bin/pip install unittest-xml-reporting'
-            }
-        }
-
-        stage('Setup Xvfb') {
-            steps {
-                sh 'Xvfb :99 -screen 0 1024x768x24 &'
             }
         }
 
