@@ -22,9 +22,15 @@ pipeline {
             }
         }
 
+        stage('Setup Xvfb') {
+            steps {
+                sh 'Xvfb :99 -screen 0 1024x768x24 &'
+            }
+        }
+
         stage('Run Tests') {
             steps {
-                sh 'xvfb-run -s "-screen 0 1024x768x24" ./venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
+                sh './venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
             }
         }
     }
