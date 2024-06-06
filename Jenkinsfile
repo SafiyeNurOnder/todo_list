@@ -24,7 +24,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh './venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
+                sh 'xvfb-run -a ./venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
             }
         }
     }
