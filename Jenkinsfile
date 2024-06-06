@@ -1,6 +1,44 @@
 pipeline {
     agent any
 
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/SafiyeNurOnder/todo_list.git'
+            }
+        }
+
+        stage('Setup Python Environment') {
+            steps {
+                sh 'python -m venv venv'
+                sh './venv/bin/pip install --upgrade pip'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh './venv/bin/pip install -r requirements.txt'
+                sh './venv/bin/pip install unittest-xml-reporting'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh './venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
+            }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-reports/*.xml'
+        }
+    }
+}
+
+"""pipeline {
+    agent any
+
     environment {
         DOCKER_IMAGE = 'safiyenuronder/mytodolistapp:latest'  // Docker Hub'daki imajınızın ismi ve etiketi
         DISPLAY = ':99'  // Xvfb için kullanılacak ekran numarası
@@ -36,4 +74,4 @@ pipeline {
             junit 'tests/reports/*.xml'
         }
     }
-}
+}"""
