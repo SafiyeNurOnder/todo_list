@@ -85,7 +85,12 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'xvfb-run -a ./venv/bin/python -m xmlrunner discover -s tests -p "*.py" -o test-reports'
+                RUN echo '#!/bin/bash\n\
+                Xvfb :99 -screen 0 1024x768x24 &\n\
+                x11vnc -display :99 -nopw -forever -shared &\n\
+                    python3 app.py' > /app/start.sh && chmod +x /app/start.sh
+
+
             }
         }
     }
