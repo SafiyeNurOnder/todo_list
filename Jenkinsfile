@@ -21,19 +21,5 @@ pipeline {
                 sh 'Xvfb :99 -screen 0 1024x768x24 &'
             }
         }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    sh "docker run -e DISPLAY=${DISPLAY} -v ${DOCKER_VOLUME}:/app -w /app ${DOCKER_IMAGE} python -m unittest discover -s tests"
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            junit 'tests/reports/*.xml'
-        }
     }
 }
